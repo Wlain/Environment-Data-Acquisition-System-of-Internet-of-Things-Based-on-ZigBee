@@ -1,0 +1,1233 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V9.30.3.3983 for 8051               25/Apr/2017  12:03:32
+// Copyright 2004-2016 IAR Systems AB.
+// Standalone license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        C:\Texas Instruments\ZStack-CC2530-2.4.0-1.4.0\Components\mt\MT_SYS.c
+//    Command line       =  
+//        -f "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+//        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+//        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig-top.cfg"
+//        (-DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x2100
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+//        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+//        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=TRUE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)
+//        -DREJOIN_POLL_RATE=440 "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Components\mt\MT_SYS.c" -D
+//        NWK_AUTO_POLL -D HOLD_AUTO_START -D REFLECTOR -D xPOWER_SAVING -D
+//        NV_INIT -D xNV_RESTORE -D xZTOOL_P1 -D xMT_TASK -D xMT_SYS_FUNC -D
+//        xMT_SAPI_FUNC -D xMT_SAPI_CB_FUNC -D STARTEST -D LCD_USE -lC
+//        "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\MPEndPoint\List"
+//        -lA "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\MPEndPoint\List"
+//        --diag_suppress Pe001,Pa010 -o "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\MPEndPoint\Obj"
+//        -e --no_code_motion --debug --core=plain --dptr=16,1
+//        --data_model=large --code_model=banked
+//        --calling_convention=xdata_reentrant --place_constants=data_rom
+//        --nr_virtual_regs 8 -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\Source\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\ZMain\TI2530DB\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\hal\include\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\mac\include\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\mt\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\osal\include\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\osal\mcu\ccsoc\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\af\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\zmac\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+//        -Ohz
+//    List file          =  
+//        C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\MPEndPoint\List\MT_SYS.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME MT_SYS
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?V0
+        EXTERN ?V1
+        EXTERN ?V2
+        EXTERN ?ALLOC_XSTACK8
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?DEALLOC_XSTACK8
+        EXTERN ?PUSH_XSTACK_I_THREE
+        EXTERN ?XSP
+        EXTERN ?XSTACK_DISP0_8
+
+        PUBLIC `??MT_SysOsalTimerExpired::?relay`
+        FUNCTION `??MT_SysOsalTimerExpired::?relay`,0203H
+        PUBLIC `??MT_SysResetInd::?relay`
+        FUNCTION `??MT_SysResetInd::?relay`,0203H
+        PUBLIC MT_SysOsalEventId
+        PUBLIC MT_SysOsalTimerExpired
+        FUNCTION MT_SysOsalTimerExpired,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 10, STACK
+        PUBLIC MT_SysResetInd
+        FUNCTION MT_SysResetInd,0a1203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 20, STACK
+        PUBWEAK SLEEPSTA
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_SP SP IDATA
+          CFI StackFrame CFA_PSP16 PSP16 XDATA
+          CFI StackFrame CFA_XSP16 XSP16 XDATA
+          CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+          CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+          CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+          CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+          CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+          CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+          CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+          CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+          CFI Resource SP:8, PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+          CFI VirtualResource ?RET:24
+          CFI Resource ?BRET_EXT:8
+          CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+          CFI ResourceParts PSP16 PSPH, PSPL
+          CFI ResourceParts XSP16 XSPH, XSPL
+          CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-3
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B Undefined
+          CFI A Undefined
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 Undefined
+          CFI R5 Undefined
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT Frame(CFA_SP, 3)
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon0
+        
+MT_BuildAndSendZToolResponse SYMBOL "MT_BuildAndSendZToolResponse"
+`??MT_BuildAndSendZToolResponse::?relay` SYMBOL "?relay", MT_BuildAndSendZToolResponse
+osal_memcpy         SYMBOL "osal_memcpy"
+`??osal_memcpy::?relay` SYMBOL "?relay", osal_memcpy
+MT_SysOsalTimerExpired SYMBOL "MT_SysOsalTimerExpired"
+`??MT_SysOsalTimerExpired::?relay` SYMBOL "?relay", MT_SysOsalTimerExpired
+MT_SysResetInd      SYMBOL "MT_SysResetInd"
+`??MT_SysResetInd::?relay` SYMBOL "?relay", MT_SysResetInd
+
+        EXTERN `??MT_BuildAndSendZToolResponse::?relay`
+        FUNCTION `??MT_BuildAndSendZToolResponse::?relay`,00H
+        EXTERN `??osal_memcpy::?relay`
+        FUNCTION `??osal_memcpy::?relay`,00H
+        EXTERN MTVersionString
+        EXTERN MT_BuildAndSendZToolResponse
+        FUNCTION MT_BuildAndSendZToolResponse,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 17, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_memcpy
+        FUNCTION osal_memcpy,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 20, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+
+// C:\Texas Instruments\ZStack-CC2530-2.4.0-1.4.0\Components\mt\MT_SYS.c
+//    1 /***************************************************************************************************
+//    2   Filename:       MT_SYS.c
+//    3   Revised:        $Date: 2010-10-05 10:18:33 -0700 (Tue, 05 Oct 2010) $
+//    4   Revision:       $Revision: 23986 $
+//    5 
+//    6   Description:   MonitorTest
+//    7 
+//    8   Copyright 2007-2010 Texas Instruments Incorporated. All rights reserved.
+//    9 
+//   10   IMPORTANT: Your use of this Software is limited to those specific rights
+//   11   granted under the terms of a software license agreement between the user
+//   12   who downloaded the software, his/her employer (which must be your employer)
+//   13   and Texas Instruments Incorporated (the "License").  You may not use this
+//   14   Software unless you agree to abide by the terms of the License. The License
+//   15   limits your use, and you acknowledge, that the Software may not be modified,
+//   16   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   17   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   18   frequency transceiver, which is integrated into your product.  Other than for
+//   19   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   20   works of, modify, distribute, perform, display or sell this Software and/or
+//   21   its documentation for any purpose.
+//   22 
+//   23   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   24   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   25   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   26   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   27   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   28   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   29   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   30   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   31   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   32   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   33   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   34 
+//   35   Should you have any questions regarding your right to use this Software,
+//   36   contact Texas Instruments Incorporated at www.TI.com.
+//   37 
+//   38  ***************************************************************************************************/
+//   39 
+//   40 /***************************************************************************************************
+//   41  * INCLUDES
+//   42  ***************************************************************************************************/
+//   43 #include "ZComDef.h"
+//   44 #include "MT.h"
+//   45 #include "MT_SYS.h"
+//   46 #include "MT_VERSION.h"
+//   47 #include "nwk_util.h"
+//   48 #include "OSAL.h"
+//   49 #include "OSAL_NV.h"
+//   50 #include "Onboard.h"  /* This is here because RAM read/write macros need it */
+
+        ASEGN SFR_AN:DATA:NOROOT,09dH
+// unsigned char volatile __sfr SLEEPSTA
+SLEEPSTA:
+        DATA8
+        DS 1
+//   51 #include "hal_adc.h"
+//   52 #include "ZGlobals.h"
+//   53 
+//   54 /***************************************************************************************************
+//   55  * MACROS
+//   56  ***************************************************************************************************/
+//   57 
+//   58 #define MT_SYS_DEVICE_INFO_RESPONSE_LEN 14
+//   59 #define MT_NV_ITEM_MAX_LENGTH           250
+//   60 
+//   61 #if !defined HAL_GPIO || !HAL_GPIO
+//   62 #define GPIO_DIR_IN(IDX)
+//   63 #define GPIO_DIR_OUT(IDX)
+//   64 #define GPIO_TRI(IDX)
+//   65 #define GPIO_PULL_UP(IDX)
+//   66 #define GPIO_PULL_DN(IDX)
+//   67 #define GPIO_SET(IDX)
+//   68 #define GPIO_CLR(IDX)
+//   69 #define GPIO_TOG(IDX)
+//   70 #define GPIO_GET(IDX) 0
+//   71 #define GPIO_HiD_SET() (val = 0)
+//   72 #define GPIO_HiD_CLR() (val = 0)
+//   73 #endif
+//   74 
+//   75 /***************************************************************************************************
+//   76  * CONSTANT
+//   77  ***************************************************************************************************/
+//   78 
+//   79 #if !defined MT_SYS_OSAL_NV_READ_CERTIFICATE_DATA
+//   80 #define MT_SYS_OSAL_NV_READ_CERTIFICATE_DATA  FALSE
+//   81 #endif
+//   82 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//   83 const uint16 MT_SysOsalEventId [] = {
+MT_SysOsalEventId:
+        DATA16
+        DW 2048
+        DW 1024
+        DW 512
+        DW 256
+//   84                                       MT_SYS_OSAL_EVENT_0,
+//   85                                       MT_SYS_OSAL_EVENT_1,
+//   86                                       MT_SYS_OSAL_EVENT_2,
+//   87                                       MT_SYS_OSAL_EVENT_3
+//   88                                     };
+//   89 
+//   90 typedef enum {
+//   91   GPIO_DIR,
+//   92   GPIO_TRI,
+//   93   GPIO_SET,
+//   94   GPIO_CLR,
+//   95   GPIO_TOG,
+//   96   GPIO_GET,
+//   97   GPIO_HiD = 0x12
+//   98 } GPIO_Op_t;
+//   99 
+//  100 /***************************************************************************************************
+//  101  * LOCAL FUNCTIONS
+//  102  ***************************************************************************************************/
+//  103 #if defined (MT_SYS_FUNC)
+//  104 void MT_SysReset(uint8 *pBuf);
+//  105 void MT_SysPing(void);
+//  106 void MT_SysVersion(void);
+//  107 void MT_SysSetExtAddr(uint8 *pBuf);
+//  108 void MT_SysGetExtAddr(void);
+//  109 void MT_SysOsalNVWrite(uint8 *pBuf);
+//  110 void MT_SysOsalNVRead(uint8 *pBuf);
+//  111 void MT_SysOsalStartTimer(uint8 *pBuf);
+//  112 void MT_SysOsalStopTimer(uint8 *pBuf);
+//  113 void MT_SysRandom(void);
+//  114 void MT_SysAdcRead(uint8 *pBuf);
+//  115 void MT_SysGpio(uint8 *pBuf);
+//  116 void MT_SysStackTune(uint8 *pBuf);
+//  117 void MT_SysGetDeviceInfo(uint8 *pBuf);
+//  118 #endif /* MT_SYS_FUNC */
+//  119 
+//  120 #if defined (MT_SYS_FUNC)
+//  121 /***************************************************************************************************
+//  122  * @fn      MT_SysProcessing
+//  123  *
+//  124  * @brief   Process all the SYS commands that are issued by test tool
+//  125  *
+//  126  * @param   pBuf - pointer to the msg buffer
+//  127  *
+//  128  *          | LEN  | CMD0  | CMD1  |  DATA  |
+//  129  *          |  1   |   1   |   1   |  0-255 |
+//  130  *
+//  131  * @return  status
+//  132  ***************************************************************************************************/
+//  133 uint8 MT_SysCommandProcessing(uint8 *pBuf)
+//  134 {
+//  135   uint8 status = MT_RPC_SUCCESS;
+//  136 
+//  137   switch (pBuf[MT_RPC_POS_CMD1])
+//  138   {
+//  139     case MT_SYS_RESET_REQ:
+//  140       MT_SysReset(pBuf);
+//  141       break;
+//  142 
+//  143     case MT_SYS_PING:
+//  144       MT_SysPing();
+//  145       break;
+//  146 
+//  147     case MT_SYS_VERSION:
+//  148       MT_SysVersion();
+//  149       break;
+//  150 
+//  151     case MT_SYS_SET_EXTADDR:
+//  152       MT_SysSetExtAddr(pBuf);
+//  153       break;
+//  154 
+//  155     case MT_SYS_GET_EXTADDR:
+//  156       MT_SysGetExtAddr();
+//  157       break;
+//  158 
+//  159 // CC253X MAC Network Processor does not have NV support
+//  160 #if !defined(CC253X_MACNP)
+//  161     case MT_SYS_OSAL_NV_READ:
+//  162       MT_SysOsalNVRead(pBuf);
+//  163       break;
+//  164 
+//  165     case MT_SYS_OSAL_NV_WRITE:
+//  166       MT_SysOsalNVWrite(pBuf);
+//  167       break;
+//  168 #endif
+//  169 
+//  170     case MT_SYS_OSAL_START_TIMER:
+//  171       MT_SysOsalStartTimer(pBuf);
+//  172       break;
+//  173 
+//  174     case MT_SYS_OSAL_STOP_TIMER:
+//  175       MT_SysOsalStopTimer(pBuf);
+//  176       break;
+//  177 
+//  178     case MT_SYS_RANDOM:
+//  179       MT_SysRandom();
+//  180       break;
+//  181 
+//  182     case MT_SYS_ADC_READ:
+//  183       MT_SysAdcRead(pBuf);
+//  184       break;
+//  185 
+//  186     case MT_SYS_GPIO:
+//  187       MT_SysGpio(pBuf);
+//  188       break;
+//  189 
+//  190     case MT_SYS_STACK_TUNE:
+//  191       MT_SysStackTune(pBuf);
+//  192       break;
+//  193 
+//  194     default:
+//  195       status = MT_RPC_ERR_COMMAND_ID;
+//  196       break;
+//  197   }
+//  198 
+//  199   return status;
+//  200 }
+//  201 
+//  202 /**************************************************************************************************
+//  203  * @fn      MT_SysReset
+//  204  *
+//  205  * @brief   Reset the device.
+//  206  * @param   typID: 0=reset, 1=serial bootloader
+//  207  *
+//  208  * @return  None
+//  209  *************************************************************************************************/
+//  210 void MT_SysReset(uint8 *pBuf)
+//  211 {
+//  212   if (pBuf[MT_RPC_POS_DAT0] == 0)
+//  213   {
+//  214     SystemReset();
+//  215   }
+//  216 #ifndef HAL_BOARD_LM3S
+//  217   else
+//  218   {
+//  219     SystemResetSoft();  // Especially useful for CC2531 to not break comm with USB Host.
+//  220   }
+//  221 #endif
+//  222 
+//  223 }
+//  224 
+//  225 /***************************************************************************************************
+//  226  * @fn      MT_SysPing
+//  227  *
+//  228  * @brief   Process the Ping command
+//  229  *
+//  230  * @param   None
+//  231  *
+//  232  * @return  None
+//  233  ***************************************************************************************************/
+//  234 void MT_SysPing(void)
+//  235 {
+//  236   uint16 tmp16;
+//  237   uint8 retArray[2];
+//  238 
+//  239   /* Build Capabilities */
+//  240   tmp16 = MT_CAP_SYS | MT_CAP_MAC | MT_CAP_NWK | MT_CAP_AF | MT_CAP_ZDO|
+//  241           MT_CAP_SAPI | MT_CAP_UTIL | MT_CAP_DEBUG | MT_CAP_APP | MT_CAP_ZOAD;
+//  242 
+//  243   /* Convert to high byte first into temp buffer */
+//  244   retArray[0] = LO_UINT16( tmp16 );
+//  245   retArray[1] = HI_UINT16( tmp16 );
+//  246 
+//  247   /* Build and send back the response */
+//  248   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), MT_SYS_PING,
+//  249                                 sizeof (tmp16), retArray );
+//  250 }
+//  251 
+//  252 /***************************************************************************************************
+//  253  * @fn      MT_SysVersion
+//  254  *
+//  255  * @brief   Process the Version command
+//  256  *
+//  257  * @param   None
+//  258  *
+//  259  * @return  None
+//  260  ***************************************************************************************************/
+//  261 void MT_SysVersion(void)
+//  262 {
+//  263   byte *verStr = (byte *)MTVersionString;
+//  264   uint8 respLen = sizeof(MTVersionString);
+//  265 
+//  266   /* Build and send back the response */
+//  267   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), MT_SYS_VERSION,
+//  268                                respLen, verStr);
+//  269 }
+//  270 
+//  271 /***************************************************************************************************
+//  272  * @fn      MT_SysSetExtAddr
+//  273  *
+//  274  * @brief   Set the Extended Address
+//  275  *
+//  276  * @param   pBuf
+//  277  *
+//  278  * @return  None
+//  279  ***************************************************************************************************/
+//  280 void MT_SysSetExtAddr(uint8 *pBuf)
+//  281 {
+//  282   uint8 retValue = ZFailure;
+//  283   uint8 cmdId;
+//  284 
+//  285   /* parse header */
+//  286   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  287   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  288 
+//  289   if ( ZMacSetReq(ZMacExtAddr, pBuf) == ZMacSuccess )
+//  290   {
+//  291 // CC253X MAC Network Processor does not have NV support
+//  292 #if !defined(CC253X_MACNP)
+//  293     retValue = osal_nv_write(ZCD_NV_EXTADDR, 0, Z_EXTADDR_LEN, pBuf);
+//  294 #endif
+//  295   }
+//  296 
+//  297   /* Build and send back the response */
+//  298   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), cmdId, 1, &retValue);
+//  299 
+//  300 }
+//  301 
+//  302 /***************************************************************************************************
+//  303  * @fn      MT_SysGetExtAddr
+//  304  *
+//  305  * @brief   Get the Extended Address
+//  306  *
+//  307  * @param   None
+//  308  *
+//  309  * @return  None
+//  310  ***************************************************************************************************/
+//  311 void MT_SysGetExtAddr(void)
+//  312 {
+//  313   uint8 extAddr[Z_EXTADDR_LEN];
+//  314 
+//  315   ZMacGetReq( ZMacExtAddr, extAddr );
+//  316 
+//  317   /* Build and send back the response */
+//  318   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), MT_SYS_GET_EXTADDR,
+//  319                                Z_EXTADDR_LEN, extAddr);
+//  320 }
+//  321 
+//  322 /***************************************************************************************************
+//  323  * @fn      MT_SysOsalNVRead
+//  324  *
+//  325  * @brief  Read a NV value
+//  326  *
+//  327  * @param  uint8 pBuf - pointer to the data
+//  328  *
+//  329  * @return  None
+//  330  ***************************************************************************************************/
+//  331 void MT_SysOsalNVRead(uint8 *pBuf)
+//  332 {
+//  333   uint16 nvId;
+//  334   uint8 nvItemLen=0, nvItemOffset=0;
+//  335   uint8 *pRetBuf=NULL;
+//  336   uint8 respLen, cmdId;
+//  337 
+//  338   /* parse header */
+//  339   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  340   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  341 
+//  342   /* Get the ID */
+//  343   nvId = BUILD_UINT16(pBuf[0], pBuf[1]);
+//  344   pBuf += sizeof(uint16);
+//  345 
+//  346 #if !MT_SYS_OSAL_NV_READ_CERTIFICATE_DATA
+//  347   if ((ZCD_NV_IMPLICIT_CERTIFICATE == nvId) ||
+//  348       (ZCD_NV_CA_PUBLIC_KEY == nvId)        ||
+//  349       (ZCD_NV_DEVICE_PRIVATE_KEY == nvId))
+//  350   {
+//  351     uint8 tmp[2] = { INVALIDPARAMETER, 0 };
+//  352     MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), cmdId, 2, tmp);
+//  353     return;
+//  354   }
+//  355 #endif
+//  356 
+//  357 #if !MT_SYS_KEY_MANAGEMENT
+//  358   if ( (nvId == ZCD_NV_NWK_ACTIVE_KEY_INFO) ||
+//  359        (nvId == ZCD_NV_NWK_ALTERN_KEY_INFO) ||
+//  360       ((nvId >= ZCD_NV_TCLK_TABLE_START) && (nvId <= ZCD_NV_TCLK_TABLE_END)) ||
+//  361       ((nvId >= ZCD_NV_APS_LINK_KEY_DATA_START) && (nvId <= ZCD_NV_APS_LINK_KEY_DATA_END)) ||
+//  362       ((nvId >= ZCD_NV_MASTER_KEY_DATA_START) && (nvId <= ZCD_NV_MASTER_KEY_DATA_END)) ||
+//  363        (nvId == ZCD_NV_PRECFGKEY) )
+//  364   {
+//  365     uint8 tmp1[2] = { INVALIDPARAMETER, 0 };
+//  366     MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), cmdId, 2, tmp1);
+//  367     return;
+//  368   }
+//  369 #endif //!MT_SYS_KEY_MANAGEMENT
+//  370 
+//  371   /* Calculate the offset */
+//  372   nvItemOffset = *pBuf;
+//  373 
+//  374   nvItemLen = osal_nv_item_len(nvId);
+//  375 
+//  376   /* Return only 250 bytes max */
+//  377   if (nvItemLen > MT_NV_ITEM_MAX_LENGTH)
+//  378   {
+//  379     nvItemLen = MT_NV_ITEM_MAX_LENGTH;
+//  380   }
+//  381 
+//  382   if ((nvItemLen > 0) && ((nvItemLen - nvItemOffset) > 0))
+//  383   {
+//  384     respLen = nvItemLen - nvItemOffset + 2;
+//  385   }
+//  386   else
+//  387   {
+//  388     respLen = 2;
+//  389   }
+//  390 
+//  391   pRetBuf = osal_mem_alloc(respLen);
+//  392 
+//  393   if (pRetBuf != NULL)
+//  394   {
+//  395     osal_memset(pRetBuf, 0, respLen);
+//  396 
+//  397     /* Default to ZFailure */
+//  398     pRetBuf[0] = ZFailure;
+//  399 
+//  400     if (respLen > 2)
+//  401     {
+//  402       if (((osal_nv_read( nvId, (uint16)nvItemOffset, (uint16)nvItemLen, &pRetBuf[2])) == ZSUCCESS) && (respLen > 2))
+//  403       {
+//  404         pRetBuf[0] = ZSuccess;
+//  405       }
+//  406       pRetBuf[1] = nvItemLen - nvItemOffset;
+//  407     }
+//  408     else
+//  409     {
+//  410       pRetBuf[1] = 0;
+//  411     }
+//  412 
+//  413     /* Build and send back the response */
+//  414     MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), cmdId, respLen, pRetBuf );
+//  415 
+//  416     osal_mem_free(pRetBuf);
+//  417   }
+//  418 
+//  419 
+//  420 }
+//  421 
+//  422 /***************************************************************************************************
+//  423  * @fn      MT_SysOsalNVWrite
+//  424  *
+//  425  * @brief
+//  426  *
+//  427  * @param   uint8 pData - pointer to the data
+//  428  *
+//  429  * @return  None
+//  430  ***************************************************************************************************/
+//  431 void MT_SysOsalNVWrite(uint8 *pBuf)
+//  432 {
+//  433   uint16 nvId;
+//  434   uint8 nvItemLen=0, nvItemOffset=0;
+//  435   uint8 rtrn, cmd;
+//  436 
+//  437   /* parse header */
+//  438   cmd = pBuf[MT_RPC_POS_CMD1];
+//  439   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  440 
+//  441   /* Get the ID */
+//  442   nvId = BUILD_UINT16(pBuf[0], pBuf[1]);
+//  443   pBuf += sizeof(uint16);
+//  444 
+//  445   /* Calculate the offset */
+//  446   nvItemOffset = *pBuf++;
+//  447 
+//  448   /* Calculate the length */
+//  449   nvItemLen = *pBuf++;
+//  450 
+//  451   /* Default to ZFailure */
+//  452   rtrn = ZFailure;
+//  453 
+//  454   /* Set the Z-Globals value of this NV item. */
+//  455   zgSetItem( nvId, (uint16)nvItemLen, pBuf );
+//  456 
+//  457   if ((osal_nv_write(nvId, (uint16)nvItemOffset, (uint16)nvItemLen, pBuf)) == ZSUCCESS)
+//  458   {
+//  459     if (nvId == ZCD_NV_EXTADDR)
+//  460     {
+//  461       rtrn = ZMacSetReq(ZMacExtAddr, pBuf);
+//  462     }
+//  463     else
+//  464     {
+//  465       rtrn = ZSuccess;
+//  466     }
+//  467   }
+//  468 
+//  469   /* Build and send back the response */
+//  470   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), cmd, 1, &rtrn);
+//  471 }
+//  472 
+//  473 /***************************************************************************************************
+//  474  * @fn      MT_SysOsalStartTimer
+//  475  *
+//  476  * @brief
+//  477  *
+//  478  * @param   uint8 pData - pointer to the data
+//  479  *
+//  480  * @return  None
+//  481  ***************************************************************************************************/
+//  482 void MT_SysOsalStartTimer(uint8 *pBuf)
+//  483 {
+//  484   uint16 eventId;
+//  485   uint8 retValue = ZFailure;
+//  486   uint8 cmdId;
+//  487 
+//  488   /* parse header */
+//  489   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  490   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  491 
+//  492   if (*pBuf <= 3)
+//  493   {
+//  494     eventId = (uint16) MT_SysOsalEventId[*pBuf];
+//  495     retValue = osal_start_timerEx(MT_TaskID, eventId, BUILD_UINT16(pBuf[1], pBuf[2]));
+//  496   }
+//  497   else
+//  498   {
+//  499     retValue = ZInvalidParameter;
+//  500   }
+//  501 
+//  502   /* Build and send back the response */
+//  503   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), cmdId, 1, &retValue);
+//  504 }
+//  505 
+//  506 /***************************************************************************************************
+//  507  * @fn      MT_SysOsalStopTimer
+//  508  *
+//  509  * @brief
+//  510  *
+//  511  * @param   uint8 pData - pointer to the data
+//  512  *
+//  513  * @return  None
+//  514  ***************************************************************************************************/
+//  515 void MT_SysOsalStopTimer(uint8 *pBuf)
+//  516 {
+//  517   uint16 eventId;
+//  518   uint8 retValue = ZFailure;
+//  519   uint8 cmdId;
+//  520 
+//  521   /* parse header */
+//  522   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  523   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  524 
+//  525   if (*pBuf <= 3)
+//  526   {
+//  527     eventId = (uint16) MT_SysOsalEventId[*pBuf];
+//  528     retValue = osal_stop_timerEx(MT_TaskID, eventId);
+//  529   }
+//  530   else
+//  531   {
+//  532     retValue = ZInvalidParameter;
+//  533   }
+//  534 
+//  535   /* Build and send back the response */
+//  536   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), cmdId, 1, &retValue );
+//  537 }
+//  538 
+//  539 /***************************************************************************************************
+//  540  * @fn      MT_SysRandom
+//  541  *
+//  542  * @brief
+//  543  *
+//  544  * @param   uint8 pData - pointer to the data
+//  545  *
+//  546  * @return  None
+//  547  ***************************************************************************************************/
+//  548 void MT_SysRandom()
+//  549 {
+//  550   uint16 randValue = Onboard_rand();
+//  551   uint8 retArray[2];
+//  552 
+//  553   retArray[0] = LO_UINT16(randValue);
+//  554   retArray[1] = HI_UINT16(randValue);
+//  555 
+//  556   /* Build and send back the response */
+//  557   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), MT_SYS_RANDOM, 2, retArray );
+//  558 }
+//  559 
+//  560 /***************************************************************************************************
+//  561  * @fn      MT_SysAdcRead
+//  562  *
+//  563  * @brief   Reading ADC value, temperature sensor and voltage
+//  564  *
+//  565  * @param   uint8 pData - pointer to the data
+//  566  *
+//  567  * @return  None
+//  568  ***************************************************************************************************/
+//  569 void MT_SysAdcRead(uint8 *pBuf)
+//  570 {
+//  571 #ifndef HAL_BOARD_LM3S
+//  572   uint8 channel, resolution;
+//  573   uint16 tempValue;
+//  574   uint8 retArray[2];
+//  575   uint8 cmdId;
+//  576 
+//  577   /* parse header */
+//  578   cmdId = pBuf[MT_RPC_POS_CMD1];
+//  579   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  580 
+//  581   /* Channel */
+//  582   channel = *pBuf++;
+//  583 
+//  584   /* Resolution */
+//  585   resolution = *pBuf++;
+//  586 
+//  587   /* Voltage reading */
+//  588   switch (channel)
+//  589   {
+//  590     /* Analog input channel */
+//  591     case HAL_ADC_CHANNEL_0:
+//  592     case HAL_ADC_CHANNEL_1:
+//  593     case HAL_ADC_CHANNEL_2:
+//  594     case HAL_ADC_CHANNEL_3:
+//  595     case HAL_ADC_CHANNEL_4:
+//  596     case HAL_ADC_CHANNEL_5:
+//  597     case HAL_ADC_CHANNEL_6:
+//  598     case HAL_ADC_CHANNEL_7:
+//  599       tempValue = HalAdcRead(channel, resolution);
+//  600       break;
+//  601 
+//  602     /* Temperature sensor */
+//  603     case(HAL_ADC_CHANNEL_TEMP):
+//  604       tempValue = HalAdcRead(HAL_ADC_CHANNEL_TEMP, HAL_ADC_RESOLUTION_14);
+//  605       break;
+//  606 
+//  607     /* Voltage reading */
+//  608     case(HAL_ADC_CHANNEL_VDD):
+//  609       tempValue = HalAdcRead(HAL_ADC_CHANNEL_VDD, HAL_ADC_RESOLUTION_14);
+//  610       break;
+//  611 
+//  612     /* Undefined channels */
+//  613     default:
+//  614       tempValue = 0x00;
+//  615       break;
+//  616   }
+//  617 
+//  618   retArray[0] = LO_UINT16(tempValue);
+//  619   retArray[1] = HI_UINT16(tempValue);
+//  620 
+//  621   /* Build and send back the response */
+//  622   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), cmdId, 2, retArray);
+//  623 #endif /* #ifndef HAL_BOARD_LM3S */
+//  624 }
+//  625 
+//  626 /**************************************************************************************************
+//  627  * @fn      MT_SysGpio
+//  628  *
+//  629  * @brief   ZAccel RPC interface for controlling the available GPIO pins.
+//  630  *
+//  631  * @param   uint8 pData - Pointer to the data.
+//  632  *
+//  633  * @return  None
+//  634  *************************************************************************************************/
+//  635 void MT_SysGpio(uint8 *pBuf)
+//  636 {
+//  637   uint8 cmd, val;
+//  638   GPIO_Op_t op;
+//  639 
+//  640   cmd = pBuf[MT_RPC_POS_CMD1];
+//  641   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  642 
+//  643   op = (GPIO_Op_t)(*pBuf++);
+//  644   val = *pBuf;
+//  645 
+//  646   switch (op)
+//  647   {
+//  648     case GPIO_DIR:
+//  649       if (val & BV(0)) {GPIO_DIR_OUT(0);} else {GPIO_DIR_IN(0);}
+//  650       if (val & BV(1)) {GPIO_DIR_OUT(1);} else {GPIO_DIR_IN(1);}
+//  651       if (val & BV(2)) {GPIO_DIR_OUT(2);} else {GPIO_DIR_IN(2);}
+//  652       if (val & BV(3)) {GPIO_DIR_OUT(3);} else {GPIO_DIR_IN(3);}
+//  653       break;
+//  654 
+//  655     case GPIO_TRI:
+//  656       if(val & BV(0)) {GPIO_TRI(0);} else if(val & BV(4)) {GPIO_PULL_DN(0);} else {GPIO_PULL_UP(0);}
+//  657       if(val & BV(1)) {GPIO_TRI(1);} else if(val & BV(5)) {GPIO_PULL_DN(1);} else {GPIO_PULL_UP(1);}
+//  658       if(val & BV(2)) {GPIO_TRI(2);} else if(val & BV(6)) {GPIO_PULL_DN(2);} else {GPIO_PULL_UP(2);}
+//  659       if(val & BV(3)) {GPIO_TRI(3);} else if(val & BV(7)) {GPIO_PULL_DN(3);} else {GPIO_PULL_UP(3);}
+//  660       break;
+//  661 
+//  662     case GPIO_SET:
+//  663       if (val & BV(0)) {GPIO_SET(0);}
+//  664       if (val & BV(1)) {GPIO_SET(1);}
+//  665       if (val & BV(2)) {GPIO_SET(2);}
+//  666       if (val & BV(3)) {GPIO_SET(3);}
+//  667       break;
+//  668 
+//  669     case GPIO_CLR:
+//  670       if (val & BV(0)) {GPIO_CLR(0);}
+//  671       if (val & BV(1)) {GPIO_CLR(1);}
+//  672       if (val & BV(2)) {GPIO_CLR(2);}
+//  673       if (val & BV(3)) {GPIO_CLR(3);}
+//  674       break;
+//  675 
+//  676     case GPIO_TOG:
+//  677       if (val & BV(0)) {GPIO_TOG(0);}
+//  678       if (val & BV(1)) {GPIO_TOG(1);}
+//  679       if (val & BV(2)) {GPIO_TOG(2);}
+//  680       if (val & BV(3)) {GPIO_TOG(3);}
+//  681       break;
+//  682 
+//  683     case GPIO_GET:
+//  684       break;
+//  685 
+//  686     case GPIO_HiD:
+//  687       (val) ? GPIO_HiD_SET() :  GPIO_HiD_CLR();
+//  688       break;
+//  689 
+//  690     default:
+//  691       break;
+//  692   }
+//  693 
+//  694   val  = (GPIO_GET(0)) ? BV(0) : 0;
+//  695   val |= (GPIO_GET(1)) ? BV(1) : 0;
+//  696   val |= (GPIO_GET(2)) ? BV(2) : 0;
+//  697   val |= (GPIO_GET(3)) ? BV(3) : 0;
+//  698 
+//  699   /* Build and send back the response */
+//  700   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), cmd, 1, &val);
+//  701 }
+//  702 
+//  703 /**************************************************************************************************
+//  704  * @fn      MT_SysStackTune
+//  705  *
+//  706  * @brief   ZAccel RPC interface for tuning the stack parameters to adjust performance
+//  707  *
+//  708  * @param   uint8 pData - Pointer to the data.
+//  709  *
+//  710  * @return  None
+//  711  *************************************************************************************************/
+//  712 void MT_SysStackTune(uint8 *pBuf)
+//  713 {
+//  714   uint8 cmd, rtrn;
+//  715 
+//  716   cmd = pBuf[MT_RPC_POS_CMD1];
+//  717   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  718 
+//  719   switch (*pBuf++)
+//  720   {
+//  721   case STK_TX_PWR:
+//  722     rtrn = ZMacSetReq(ZMacPhyTransmitPowerSigned, pBuf);
+//  723     break;
+//  724 
+//  725   case STK_RX_ON_IDLE:
+//  726     if ((*pBuf != TRUE) && (*pBuf != FALSE))
+//  727     {
+//  728       (void)ZMacGetReq(ZMacRxOnIdle, &rtrn);
+//  729     }
+//  730     else
+//  731     {
+//  732       rtrn = ZMacSetReq(ZMacRxOnIdle, pBuf);
+//  733     }
+//  734     break;
+//  735 
+//  736   default:
+//  737     rtrn = ZInvalidParameter;
+//  738     break;
+//  739   }
+//  740 
+//  741   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SYS), cmd, 1, &rtrn);
+//  742 }
+//  743 #endif /* MT_SYS_FUNC */
+//  744 
+//  745 /***************************************************************************************************
+//  746  * SUPPORT
+//  747  ***************************************************************************************************/
+//  748 
+//  749 /***************************************************************************************************
+//  750  * @fn      MT_SysResetInd()
+//  751  *
+//  752  * @brief   Sends a ZTOOL "reset response" message.
+//  753  *
+//  754  * @param   None
+//  755  *
+//  756  * @return  None
+//  757  *
+//  758  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  759 void MT_SysResetInd(void)
+MT_SysResetInd:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function MT_SysResetInd
+        CODE
+//  760 {
+        FUNCALL MT_SysResetInd, osal_memcpy
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 20, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 20, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SysResetInd, MT_BuildAndSendZToolResponse
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 17, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 17, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        MOV     A,#-0xb
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 11)
+        ; Saved register size: 11
+        ; Auto size: 6
+        MOV     A,#-0x6
+        LCALL   ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 17)
+//  761   uint8 retArray[6];
+//  762 
+//  763   retArray[0] = ResetReason();   /* Reason */
+        MOV     A,0x9d
+        RRC     A
+        RRC     A
+        RRC     A
+        ANL     A,#0x1f
+        ANL     A,#0x3
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOVX    @DPTR,A
+//  764   osal_memcpy( &retArray[1], MTVersionString, 5 );   /* Revision info */
+        ; Setup parameters for call to function osal_memcpy
+        MOV     ?V0,#MTVersionString & 0xff
+        MOV     ?V1,#(MTVersionString >> 8) & 0xff
+        MOV     ?V2,#0x0
+        MOV     R0,#?V0
+        LCALL   ?PUSH_XSTACK_I_THREE
+          CFI CFA_XSP16 add(XSP16, 20)
+        MOV     R4,#0x5
+        MOV     R5,#0x0
+        MOV     A,#0x4
+        LCALL   ?XSTACK_DISP0_8
+        MOV     R2,DPL
+        MOV     R3,DPH
+        LCALL   `??osal_memcpy::?relay`; Banked call to: osal_memcpy
+        MOV     A,#0x3
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 17)
+//  765 
+//  766   /* Send out Reset Response message */
+//  767   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_SYS), MT_SYS_RESET_IND,
+//  768                                 sizeof(retArray), retArray);
+        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+        MOV     R4,?XSP + 0
+        MOV     R5,?XSP + 1
+        MOV     R3,#0x6
+        MOV     R2,#-0x80
+        MOV     R1,#0x41
+        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
+//  769 }
+        MOV     A,#0x6
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 11)
+        MOV     R7,#0x3
+        LJMP    ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock0
+        REQUIRE SLEEPSTA
+//  770 
+//  771 /***************************************************************************************************
+//  772  * @fn      MT_SysOsalTimerExpired()
+//  773  *
+//  774  * @brief   Sends a SYS Osal Timer Expired
+//  775  *
+//  776  * @param   None
+//  777  *
+//  778  * @return  None
+//  779  *
+//  780  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  781 void MT_SysOsalTimerExpired(uint8 Id)
+MT_SysOsalTimerExpired:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function MT_SysOsalTimerExpired
+        CODE
+//  782 {
+        FUNCALL MT_SysOsalTimerExpired, MT_BuildAndSendZToolResponse
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 1
+        MOV     A,#-0x1
+        LCALL   ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 10)
+        MOV     A,R1
+//  783   uint8 retValue;
+//  784   retValue = Id;
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOVX    @DPTR,A
+//  785   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_SYS), MT_SYS_OSAL_TIMER_EXPIRED, 1, &retValue);
+        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+        MOV     R4,?XSP + 0
+        MOV     R5,?XSP + 1
+        MOV     R3,#0x1
+        MOV     R2,#-0x7f
+        MOV     R1,#0x41
+        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
+//  786 }
+        MOV     A,#0x1
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 9)
+        MOV     R7,#0x1
+        LJMP    ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock1
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??MT_SysResetInd::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    MT_SysResetInd
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??MT_SysOsalTimerExpired::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    MT_SysOsalTimerExpired
+
+        END
+//  787 
+//  788 /***************************************************************************************************
+//  789  ***************************************************************************************************/
+// 
+// 125 bytes in segment BANKED_CODE
+//  12 bytes in segment BANK_RELAYS
+//   1 byte  in segment SFR_AN
+//   8 bytes in segment XDATA_ROM_C
+// 
+//  12 bytes of CODE     memory
+//   8 bytes of CONST    memory
+//   0 bytes of DATA     memory (+ 1 byte shared)
+// 125 bytes of HUGECODE memory
+//
+//Errors: none
+//Warnings: none

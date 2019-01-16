@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\NetworkTopology-Star.ewp</path>
+  </project>
+  <batchBuild>
+    <batchDefinition>
+      <name>ALL</name>
+      <member>
+        <project>SimpleApp</project>
+        <configuration>SimpleControllerEB</configuration>
+      </member>
+      <member>
+        <project>SimpleApp</project>
+        <configuration>SimpleCollectorEB</configuration>
+      </member>
+      <member>
+        <project>SimpleApp</project>
+        <configuration>SimpleSensorEB</configuration>
+      </member>
+      <member>
+        <project>SimpleApp</project>
+        <configuration>SimpleSwitchEB</configuration>
+      </member>
+    </batchDefinition>
+  </batchBuild>
+</workspace>
+
+

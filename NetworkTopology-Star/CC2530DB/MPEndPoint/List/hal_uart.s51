@@ -1,0 +1,727 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V9.30.3.3983 for 8051               25/Apr/2017  12:03:27
+// Copyright 2004-2016 IAR Systems AB.
+// Standalone license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Components\hal\target\CC2530EB\hal_uart.c
+//    Command line       =  
+//        -f "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+//        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+//        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig-top.cfg"
+//        (-DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x2100
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+//        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+//        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=TRUE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)
+//        -DREJOIN_POLL_RATE=440 "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Components\hal\target\CC2530EB\hal_uart.c"
+//        -D NWK_AUTO_POLL -D HOLD_AUTO_START -D REFLECTOR -D xPOWER_SAVING -D
+//        NV_INIT -D xNV_RESTORE -D xZTOOL_P1 -D xMT_TASK -D xMT_SYS_FUNC -D
+//        xMT_SAPI_FUNC -D xMT_SAPI_CB_FUNC -D STARTEST -D LCD_USE -lC
+//        "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\MPEndPoint\List"
+//        -lA "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\MPEndPoint\List"
+//        --diag_suppress Pe001,Pa010 -o "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\MPEndPoint\Obj"
+//        -e --no_code_motion --debug --core=plain --dptr=16,1
+//        --data_model=large --code_model=banked
+//        --calling_convention=xdata_reentrant --place_constants=data_rom
+//        --nr_virtual_regs 8 -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\Source\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\ZMain\TI2530DB\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\hal\include\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\mac\include\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\mt\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\osal\include\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\osal\mcu\ccsoc\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\af\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\zmac\"
+//        -I "C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+//        -Ohz
+//    List file          =  
+//        C:\Texas
+//        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\MPEndPoint\List\hal_uart.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME hal_uart
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+
+        PUBLIC `??HalUARTInit::?relay`
+        FUNCTION `??HalUARTInit::?relay`,0203H
+        PUBLIC `??HalUARTOpen::?relay`
+        FUNCTION `??HalUARTOpen::?relay`,0203H
+        PUBLIC `??HalUARTPoll::?relay`
+        FUNCTION `??HalUARTPoll::?relay`,0203H
+        PUBLIC `??HalUARTRead::?relay`
+        FUNCTION `??HalUARTRead::?relay`,0203H
+        PUBLIC `??HalUARTResume::?relay`
+        FUNCTION `??HalUARTResume::?relay`,0203H
+        PUBLIC `??HalUARTSuspend::?relay`
+        FUNCTION `??HalUARTSuspend::?relay`,0203H
+        PUBLIC `??HalUARTWrite::?relay`
+        FUNCTION `??HalUARTWrite::?relay`,0203H
+        PUBLIC `??Hal_UART_RxBufLen::?relay`
+        FUNCTION `??Hal_UART_RxBufLen::?relay`,0203H
+        PUBLIC HalUARTInit
+        FUNCTION HalUARTInit,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC HalUARTOpen
+        FUNCTION HalUARTOpen,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC HalUARTPoll
+        FUNCTION HalUARTPoll,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC HalUARTRead
+        FUNCTION HalUARTRead,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC HalUARTResume
+        FUNCTION HalUARTResume,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC HalUARTSuspend
+        FUNCTION HalUARTSuspend,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC HalUARTWrite
+        FUNCTION HalUARTWrite,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC Hal_UART_RxBufLen
+        FUNCTION Hal_UART_RxBufLen,0203H
+        ARGFRAME XSTACK, 0, STACK
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_SP SP IDATA
+          CFI StackFrame CFA_PSP16 PSP16 XDATA
+          CFI StackFrame CFA_XSP16 XSP16 XDATA
+          CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+          CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+          CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+          CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+          CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+          CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+          CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+          CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+          CFI Resource SP:8, PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+          CFI VirtualResource ?RET:24
+          CFI Resource ?BRET_EXT:8
+          CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+          CFI ResourceParts PSP16 PSPH, PSPL
+          CFI ResourceParts XSP16 XSPH, XSPL
+          CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-3
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B Undefined
+          CFI A Undefined
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 Undefined
+          CFI R5 Undefined
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT Frame(CFA_SP, 3)
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon0
+        
+HalUARTInit         SYMBOL "HalUARTInit"
+`??HalUARTInit::?relay` SYMBOL "?relay", HalUARTInit
+HalUARTOpen         SYMBOL "HalUARTOpen"
+`??HalUARTOpen::?relay` SYMBOL "?relay", HalUARTOpen
+HalUARTPoll         SYMBOL "HalUARTPoll"
+`??HalUARTPoll::?relay` SYMBOL "?relay", HalUARTPoll
+HalUARTRead         SYMBOL "HalUARTRead"
+`??HalUARTRead::?relay` SYMBOL "?relay", HalUARTRead
+HalUARTResume       SYMBOL "HalUARTResume"
+`??HalUARTResume::?relay` SYMBOL "?relay", HalUARTResume
+HalUARTSuspend      SYMBOL "HalUARTSuspend"
+`??HalUARTSuspend::?relay` SYMBOL "?relay", HalUARTSuspend
+HalUARTWrite        SYMBOL "HalUARTWrite"
+`??HalUARTWrite::?relay` SYMBOL "?relay", HalUARTWrite
+Hal_UART_RxBufLen   SYMBOL "Hal_UART_RxBufLen"
+`??Hal_UART_RxBufLen::?relay` SYMBOL "?relay", Hal_UART_RxBufLen
+
+// C:\Texas Instruments\ZStack-CC2530-2.4.0-1.4.0\Components\hal\target\CC2530EB\hal_uart.c
+//    1 /**************************************************************************************************
+//    2   Filename:       _hal_uart.c
+//    3   Revised:        $Date: 2009-06-12 09:16:43 -0700 (Fri, 12 Jun 2009) $
+//    4   Revision:       $Revision: 20142 $
+//    5 
+//    6   Description: This file contains the interface to the H/W UART driver.
+//    7 
+//    8 
+//    9   Copyright 2006-2009 Texas Instruments Incorporated. All rights reserved.
+//   10 
+//   11   IMPORTANT: Your use of this Software is limited to those specific rights
+//   12   granted under the terms of a software license agreement between the user
+//   13   who downloaded the software, his/her employer (which must be your employer)
+//   14   and Texas Instruments Incorporated (the "License").  You may not use this
+//   15   Software unless you agree to abide by the terms of the License. The License
+//   16   limits your use, and you acknowledge, that the Software may not be modified,
+//   17   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   18   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   19   frequency transceiver, which is integrated into your product.  Other than for
+//   20   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   21   works of, modify, distribute, perform, display or sell this Software and/or
+//   22   its documentation for any purpose.
+//   23 
+//   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   25   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   29   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   30   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   31   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   32   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   33   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   34   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   35 
+//   36   Should you have any questions regarding your right to use this Software,
+//   37   contact Texas Instruments Incorporated at www.TI.com.
+//   38 **************************************************************************************************/
+//   39 
+//   40 /*********************************************************************
+//   41  * INCLUDES
+//   42  */
+//   43 
+//   44 #include "hal_board_cfg.h"
+//   45 #include "hal_defs.h"
+//   46 #include "hal_types.h"
+//   47 #include "hal_uart.h"
+//   48 
+//   49 /*********************************************************************
+//   50  * MACROS
+//   51  */
+//   52 
+//   53 /*********************************************************************
+//   54  * TYPEDEFS
+//   55  */
+//   56 
+//   57 /*********************************************************************
+//   58  * CONSTANTS
+//   59  */
+//   60 
+//   61 /*********************************************************************
+//   62  * GLOBAL VARIABLES
+//   63  */
+//   64 
+//   65 /*********************************************************************
+//   66  * GLOBAL FUNCTIONS
+//   67  */
+//   68 
+//   69 /*********************************************************************
+//   70  * LOCAL VARIABLES
+//   71  */
+//   72 
+//   73 /*********************************************************************
+//   74  * LOCAL FUNCTIONS
+//   75  */
+//   76 
+//   77 #if HAL_UART_DMA
+//   78 #include "_hal_uart_dma.c"
+//   79 #endif
+//   80 #if HAL_UART_ISR
+//   81 #include "_hal_uart_isr.c"
+//   82 #endif
+//   83 #if HAL_UART_USB
+//   84 #include "_hal_uart_usb.c"
+//   85 #endif
+//   86 
+//   87 /******************************************************************************
+//   88  * @fn      HalUARTInit
+//   89  *
+//   90  * @brief   Initialize the UART
+//   91  *
+//   92  * @param   none
+//   93  *
+//   94  * @return  none
+//   95  *****************************************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   96 void HalUARTInit(void)
+HalUARTInit:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function HalUARTInit
+        CODE
+//   97 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//   98 #if HAL_UART_DMA
+//   99   HalUARTInitDMA();
+//  100 #endif
+//  101 #if HAL_UART_ISR
+//  102   HalUARTInitISR();
+//  103 #endif
+//  104 #if HAL_UART_USB
+//  105   HalUARTInitUSB();
+//  106 #endif
+//  107 }
+        LJMP    ?BRET
+          CFI EndBlock cfiBlock0
+//  108 
+//  109 /******************************************************************************
+//  110  * @fn      HalUARTOpen
+//  111  *
+//  112  * @brief   Open a port according tp the configuration specified by parameter.
+//  113  *
+//  114  * @param   port   - UART port
+//  115  *          config - contains configuration information
+//  116  *
+//  117  * @return  Status of the function call
+//  118  *****************************************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  119 uint8 HalUARTOpen(uint8 port, halUARTCfg_t *config)
+HalUARTOpen:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function HalUARTOpen
+        CODE
+//  120 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  121   (void)port;
+//  122   (void)config;
+//  123 
+//  124 #if (HAL_UART_DMA == 1)
+//  125   if (port == HAL_UART_PORT_0)  HalUARTOpenDMA(config);
+//  126 #endif
+//  127 #if (HAL_UART_DMA == 2)
+//  128   if (port == HAL_UART_PORT_1)  HalUARTOpenDMA(config);
+//  129 #endif
+//  130 #if (HAL_UART_ISR == 1)
+//  131   if (port == HAL_UART_PORT_0)  HalUARTOpenISR(config);
+//  132 #endif
+//  133 #if (HAL_UART_ISR == 2)
+//  134   if (port == HAL_UART_PORT_1)  HalUARTOpenISR(config);
+//  135 #endif
+//  136 #if (HAL_UART_USB)
+//  137   HalUARTOpenUSB(config);
+//  138 #endif
+//  139   
+//  140   return HAL_UART_SUCCESS;
+        MOV     R1,#0x0
+        LJMP    ?BRET
+//  141 }
+          CFI EndBlock cfiBlock1
+//  142 
+//  143 /*****************************************************************************
+//  144  * @fn      HalUARTRead
+//  145  *
+//  146  * @brief   Read a buffer from the UART
+//  147  *
+//  148  * @param   port - USART module designation
+//  149  *          buf  - valid data buffer at least 'len' bytes in size
+//  150  *          len  - max length number of bytes to copy to 'buf'
+//  151  *
+//  152  * @return  length of buffer that was read
+//  153  *****************************************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  154 uint16 HalUARTRead(uint8 port, uint8 *buf, uint16 len)
+HalUARTRead:
+        CODE
+//  155 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  156   (void)port;
+//  157   (void)buf;
+//  158   (void)len;
+//  159 
+//  160 #if (HAL_UART_DMA == 1)
+//  161   if (port == HAL_UART_PORT_0)  return HalUARTReadDMA(buf, len);
+//  162 #endif
+//  163 #if (HAL_UART_DMA == 2)
+//  164   if (port == HAL_UART_PORT_1)  return HalUARTReadDMA(buf, len);
+//  165 #endif
+//  166 #if (HAL_UART_ISR == 1)
+//  167   if (port == HAL_UART_PORT_0)  return HalUARTReadISR(buf, len);
+//  168 #endif
+//  169 #if (HAL_UART_ISR == 2)
+//  170   if (port == HAL_UART_PORT_1)  return HalUARTReadISR(buf, len);
+//  171 #endif
+//  172 
+//  173 #if HAL_UART_USB
+//  174   return HalUARTRx(buf, len);
+//  175 #else
+//  176   return 0;
+        REQUIRE ?Subroutine0
+        ; // Fall through to label ?Subroutine0
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine0:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI NoFunction
+        MOV     R2,#0x0
+        MOV     R3,#0x0
+        LJMP    ?BRET
+          CFI EndBlock cfiBlock2
+//  177 #endif
+//  178 }
+//  179 
+//  180 /******************************************************************************
+//  181  * @fn      HalUARTWrite
+//  182  *
+//  183  * @brief   Write a buffer to the UART.
+//  184  *
+//  185  * @param   port - UART port
+//  186  *          buf  - pointer to the buffer that will be written, not freed
+//  187  *          len  - length of
+//  188  *
+//  189  * @return  length of the buffer that was sent
+//  190  *****************************************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  191 uint16 HalUARTWrite(uint8 port, uint8 *buf, uint16 len)
+HalUARTWrite:
+          CFI Block cfiBlock3 Using cfiCommon0
+          CFI Function HalUARTWrite
+        CODE
+//  192 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  193   (void)port;
+//  194   (void)buf;
+//  195   (void)len;
+//  196 
+//  197 #if (HAL_UART_DMA == 1)
+//  198   if (port == HAL_UART_PORT_0)  return HalUARTWriteDMA(buf, len);
+//  199 #endif
+//  200 #if (HAL_UART_DMA == 2)
+//  201   if (port == HAL_UART_PORT_1)  return HalUARTWriteDMA(buf, len);
+//  202 #endif
+//  203 #if (HAL_UART_ISR == 1)
+//  204   if (port == HAL_UART_PORT_0)  return HalUARTWriteISR(buf, len);
+//  205 #endif
+//  206 #if (HAL_UART_ISR == 2)
+//  207   if (port == HAL_UART_PORT_1)  return HalUARTWriteISR(buf, len);
+//  208 #endif
+//  209 
+//  210 #if HAL_UART_USB
+//  211   HalUARTTx(buf, len);
+//  212   return len;
+//  213 #else
+//  214   return 0;
+        SJMP    ?Subroutine0
+//  215 #endif
+//  216 }
+          CFI EndBlock cfiBlock3
+//  217 
+//  218 /******************************************************************************
+//  219  * @fn      HalUARTSuspend
+//  220  *
+//  221  * @brief   Suspend UART hardware before entering PM mode 1, 2 or 3.
+//  222  *
+//  223  * @param   None
+//  224  *
+//  225  * @return  None
+//  226  *****************************************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  227 void HalUARTSuspend( void )
+HalUARTSuspend:
+          CFI Block cfiBlock4 Using cfiCommon0
+          CFI Function HalUARTSuspend
+        CODE
+//  228 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  229 #if HAL_UART_DMA
+//  230   HalUARTSuspendDMA();
+//  231 #endif
+//  232 #if HAL_UART_ISR
+//  233   HalUARTSuspendISR();
+//  234 #endif
+//  235 }
+        LJMP    ?BRET
+          CFI EndBlock cfiBlock4
+//  236 
+//  237 /******************************************************************************
+//  238  * @fn      HalUARTResume
+//  239  *
+//  240  * @brief   Resume UART hardware after exiting PM mode 1, 2 or 3.
+//  241  *
+//  242  * @param   None
+//  243  *
+//  244  * @return  None
+//  245  *****************************************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  246 void HalUARTResume( void )
+HalUARTResume:
+          CFI Block cfiBlock5 Using cfiCommon0
+          CFI Function HalUARTResume
+        CODE
+//  247 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  248 #if HAL_UART_DMA
+//  249   HalUARTResumeDMA();
+//  250 #endif
+//  251 #if HAL_UART_ISR
+//  252   HalUARTResumeISR();
+//  253 #endif
+//  254 }
+        LJMP    ?BRET
+          CFI EndBlock cfiBlock5
+//  255 
+//  256 /***************************************************************************************************
+//  257  * @fn      HalUARTPoll
+//  258  *
+//  259  * @brief   Poll the UART.
+//  260  *
+//  261  * @param   none
+//  262  *
+//  263  * @return  none
+//  264  *****************************************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  265 void HalUARTPoll(void)
+HalUARTPoll:
+          CFI Block cfiBlock6 Using cfiCommon0
+          CFI Function HalUARTPoll
+        CODE
+//  266 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  267 #if HAL_UART_DMA
+//  268   HalUARTPollDMA();
+//  269 #endif
+//  270 #if HAL_UART_ISR
+//  271   HalUARTPollISR();
+//  272 #endif
+//  273 #if HAL_UART_USB
+//  274   HalUARTPollUSB();
+//  275 #endif
+//  276 }
+        LJMP    ?BRET
+          CFI EndBlock cfiBlock6
+//  277 
+//  278 /**************************************************************************************************
+//  279  * @fn      Hal_UART_RxBufLen()
+//  280  *
+//  281  * @brief   Calculate Rx Buffer length - the number of bytes in the buffer.
+//  282  *
+//  283  * @param   port - UART port
+//  284  *
+//  285  * @return  length of current Rx Buffer
+//  286  **************************************************************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  287 uint16 Hal_UART_RxBufLen( uint8 port )
+Hal_UART_RxBufLen:
+          CFI Block cfiBlock7 Using cfiCommon0
+          CFI Function Hal_UART_RxBufLen
+        CODE
+//  288 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  289   (void)port;
+//  290 
+//  291 #if (HAL_UART_DMA == 1)
+//  292   if (port == HAL_UART_PORT_0)  return HalUARTRxAvailDMA();
+//  293 #endif
+//  294 #if (HAL_UART_DMA == 2)
+//  295   if (port == HAL_UART_PORT_1)  return HalUARTRxAvailDMA();
+//  296 #endif
+//  297 #if (HAL_UART_ISR == 1)
+//  298   if (port == HAL_UART_PORT_0)  return HalUARTRxAvailISR();
+//  299 #endif
+//  300 #if (HAL_UART_ISR == 2)
+//  301   if (port == HAL_UART_PORT_1)  return HalUARTRxAvailISR();
+//  302 #endif
+//  303 #if HAL_UART_USB
+//  304   return HalUARTRxAvailUSB();
+//  305 #else
+//  306   return 0;
+        SJMP    ?Subroutine0
+//  307 #endif
+//  308 }
+          CFI EndBlock cfiBlock7
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??HalUARTInit::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    HalUARTInit
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??HalUARTOpen::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    HalUARTOpen
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??HalUARTRead::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    HalUARTRead
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??HalUARTWrite::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    HalUARTWrite
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??HalUARTSuspend::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    HalUARTSuspend
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??HalUARTResume::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    HalUARTResume
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??HalUARTPoll::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    HalUARTPoll
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??Hal_UART_RxBufLen::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    Hal_UART_RxBufLen
+
+        END
+//  309 
+//  310 /******************************************************************************
+//  311 ******************************************************************************/
+// 
+// 28 bytes in segment BANKED_CODE
+// 48 bytes in segment BANK_RELAYS
+// 
+// 48 bytes of CODE     memory
+// 28 bytes of HUGECODE memory
+//
+//Errors: none
+//Warnings: none

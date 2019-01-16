@@ -1,0 +1,34 @@
+[Stack]
+FillEnabled=0
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnLogOnly=1
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[DebugChecksum]
+Checksum=-165198446
+[CallStack]
+ShowArgs=0
+[Disassembly]
+MixedMode=1
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[Breakpoints]
+Count=0
+[ChipconEmu]
+Stop timers on halt=0
+Leave target running=1
+[Aliases]
+A0=_ "G:\无线传感器网络技术\课程设计\Texas Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\Source\MPCoordinator.c" ""
+A1=_ "I:\无线传感器网络技术\课程设计\Texas Instruments\ZStack-CC2530-2.4.0-1.4.0\Components\stack\sys\ZGlobals.c" ""
+A2=_ "I:\无线传感器网络技术\课程设计\Texas Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\ZMain\TI2530DB\ZMain.c" ""
+Count=3
+SuppressDialog=1

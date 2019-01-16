@@ -1,0 +1,782 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V9.30.3.3983 for 8051                25/Apr/2017  12:05:37
+# Copyright 2004-2016 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\Source\device_find.c
+#    Command line       =  
+#        -f "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\Tools\CC2530DB\f8wCoord.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+#        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+#        -DZDO_COORDINATOR -DRTR_NWK) -f "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig-top.cfg"
+#        (-DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x2100
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=TRUE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)
+#        -DREJOIN_POLL_RATE=440 "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\Source\device_find.c"
+#        -D HOLD_AUTO_START -D BUILD_ALL_DEVICES -D REFLECTOR -D NV_INIT -D
+#        xNV_RESTORE -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D xMT_SAPI_FUNC -D
+#        xMT_SAPI_CB_FUNC -D STARTEST -D LCD_USE -lC "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\MPCoordinator\List"
+#        -lA "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\MPCoordinator\List"
+#        --diag_suppress Pe001,Pa010 -o "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\MPCoordinator\Obj"
+#        -e --no_code_motion --debug --core=plain --dptr=16,1
+#        --data_model=large --code_model=banked
+#        --calling_convention=xdata_reentrant --place_constants=data_rom
+#        --nr_virtual_regs 8 -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\Source\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\osal\mcu\ccsoc\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz --require_prototypes
+#    List file          =  
+#        C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\MPCoordinator\List\device_find.lst
+#    Object file        =  
+#        C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\MPCoordinator\Obj\device_find.r51
+#
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\Source\device_find.c
+      1          #include "ZComDef.h"
+      2          #include "OSAL.h"
+      3          #include "sapi.h"
+      4          #include "hal_key.h"
+      5          #include "hal_led.h"
+      6          #include "DebugTrace.h"
+      7          #include "osal_nv.h"
+      8          #include "NLMEDE.h"
+      9          #include "AF.h"
+     10          #include "OnBoard.h"
+     11          #include "nwk_util.h"
+     12          #include "ZDProfile.h"
+     13          #include "ZDObject.h"
+     14          #include "hal_led.h"
+     15          #include "hal_key.h"
+     16          #include "sapi.h"
+     17          #include "MT_SAPI.h"
+     18          
+     19          #if defined( MT_TASK )
+     20            #include "osal_nv.h"
+     21          #endif
+     22          #include "mt_app.h"
+     23          #include "mt_uart.h"
+     24          #include "mt.h"
+     25          
+     26          #define my_FindDeviceConfirm zb_FindDeviceConfirm
+     27          
+     28          void my_FindDevice(uint8 searchType, uint8 *searchKey);
+     29          void my_FindDeviceConfirm( uint8 searchType, uint8 *searchKey, uint8 *result );
+     30          void SAPI_SendCback( uint8 event, uint8 status, uint16 data );
+     31          
+     32          static int my_FindDeviceProc( uint16 source, uint16 command, uint16 len, uint8 *pData);
+     33          
+     34          void my_SendDataRequest ( uint8* destination, uint16 commandId, uint8 len,
+     35                                    uint8 *pData, uint8 handle, uint8 txOptions, uint8 radius );
+     36          #define SAPICB_DATA_CNF   0xE0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     37          void my_SendDataRequest ( uint8* destination, uint16 commandId, uint8 len,
+   \                     my_SendDataRequest:
+     38                                    uint8 *pData, uint8 handle, uint8 txOptions, uint8 radius )
+     39          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000   74F2         MOV     A,#-0xe
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 12
+   \   000005   74F4         MOV     A,#-0xc
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   8C..         MOV     ?V4,R4
+   \   00000C   8D..         MOV     ?V5,R5
+   \   00000E   E9           MOV     A,R1
+   \   00000F   FE           MOV     R6,A
+     40            afStatus_t status;
+     41            afAddrType_t dstAddr;
+     42          
+     43            txOptions |= AF_DISCV_ROUTE;
+     44          
+     45            // Set the destination address
+     46            //if (destination == ZB_BINDING_ADDR)
+     47            {
+     48              // Binding
+     49              //dstAddr.addrMode = afAddrNotPresent;
+     50            }
+     51            //else
+     52            {
+     53              // Use short address
+     54              //dstAddr.addr.shortAddr = destination;
+     55              //dstAddr.addrMode = afAddr16Bit;
+     56              osal_memcpy(dstAddr.addr.extAddr, destination, Z_EXTADDR_LEN);
+   \   000010                ; Setup parameters for call to function osal_memcpy
+   \   000010   8A..         MOV     ?V0,R2
+   \   000012   8B..         MOV     ?V1,R3
+   \   000014   75..00       MOV     ?V2,#0x0
+   \   000017   78..         MOV     R0,#?V0
+   \   000019   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   00001C   7C08         MOV     R4,#0x8
+   \   00001E   7D00         MOV     R5,#0x0
+   \   000020   7403         MOV     A,#0x3
+   \   000022   12....       LCALL   ?XSTACK_DISP101_8
+   \   000025   12....       LCALL   `??osal_memcpy::?relay`; Banked call to: osal_memcpy
+   \   000028   7403         MOV     A,#0x3
+   \   00002A   12....       LCALL   ?DEALLOC_XSTACK8
+     57              //MT_ReverseBytes( dstAddr.addr.extAddr, Z_EXTADDR_LEN );
+     58              
+     59              dstAddr.addrMode = afAddr64Bit;
+   \   00002D   7408         MOV     A,#0x8
+   \   00002F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000032   7403         MOV     A,#0x3
+   \   000034   F0           MOVX    @DPTR,A
+     60          
+     61              //if ( ADDR_NOT_BCAST != NLME_IsAddressBroadcast( destination ) )
+     62              //{
+     63               // txOptions &= ~AF_ACK_REQUEST;
+     64              //}
+     65            }
+     66          
+     67            dstAddr.panId = 0;                                    // Not an inter-pan message.
+   \   000035   740A         MOV     A,#0xa
+   \   000037   12....       LCALL   ?XSTACK_DISP0_8
+   \   00003A   E4           CLR     A
+   \   00003B   F0           MOVX    @DPTR,A
+   \   00003C   A3           INC     DPTR
+   \   00003D   F0           MOVX    @DPTR,A
+     68            dstAddr.endPoint = sapi_epDesc.simpleDesc->EndPoint;  // Set the endpoint.
+   \   00003E   90....       MOV     DPTR,#sapi_epDesc + 3
+   \   000041   E0           MOVX    A,@DPTR
+   \   000042   F8           MOV     R0,A
+   \   000043   A3           INC     DPTR
+   \   000044   E0           MOVX    A,@DPTR
+   \   000045   F583         MOV     DPH,A
+   \   000047   8882         MOV     DPL,R0
+   \   000049   E0           MOVX    A,@DPTR
+   \   00004A   C0E0         PUSH    A
+   \   00004C   7409         MOV     A,#0x9
+   \   00004E   12....       LCALL   ?XSTACK_DISP0_8
+   \   000051   D0E0         POP     A
+   \   000053   F0           MOVX    @DPTR,A
+     69          
+     70            // Send the message
+     71            status = AF_DataRequest(&dstAddr, &sapi_epDesc, commandId, len,
+     72                                    pData, &handle, txOptions, radius);
+   \   000054                ; Setup parameters for call to function AF_DataRequest
+   \   000054   741E         MOV     A,#0x1e
+   \   000056   12....       LCALL   ?XSTACK_DISP0_8
+   \   000059   E0           MOVX    A,@DPTR
+   \   00005A   F5..         MOV     ?V0,A
+   \   00005C   78..         MOV     R0,#?V0
+   \   00005E   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000061   741D         MOV     A,#0x1d
+   \   000063   12....       LCALL   ?XSTACK_DISP100_8
+   \   000066   88..         MOV     ?V0,R0
+   \   000068   89..         MOV     ?V1,R1
+   \   00006A   78..         MOV     R0,#?V0
+   \   00006C   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00006F   741D         MOV     A,#0x1d
+   \   000071   12....       LCALL   ?XSTACK_DISP0_8
+   \   000074   12....       LCALL   ?PUSH_XSTACK8_X_TWO
+   \   000077   8E..         MOV     ?V0,R6
+   \   000079   75..00       MOV     ?V1,#0x0
+   \   00007C   78..         MOV     R0,#?V0
+   \   00007E   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000081   78..         MOV     R0,#?V4
+   \   000083   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000086   7426         MOV     A,#0x26
+   \   000088   12....       LCALL   ?XSTACK_DISP0_8
+   \   00008B   E0           MOVX    A,@DPTR
+   \   00008C   4420         ORL     A,#0x20
+   \   00008E   F9           MOV     R1,A
+   \   00008F   7C..         MOV     R4,#sapi_epDesc & 0xff
+   \   000091   7D..         MOV     R5,#(sapi_epDesc >> 8) & 0xff
+   \   000093   7409         MOV     A,#0x9
+   \   000095   12....       LCALL   ?XSTACK_DISP101_8
+   \   000098   12....       LCALL   `??AF_DataRequest::?relay`; Banked call to: AF_DataRequest
+   \   00009B   7409         MOV     A,#0x9
+   \   00009D   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000A0   E9           MOV     A,R1
+   \   0000A1   FA           MOV     R2,A
+     73          
+     74            if (status != afStatus_SUCCESS)
+   \   0000A2   600E         JZ      ??my_SendDataRequest_0
+     75            {
+     76              SAPI_SendCback( SAPICB_DATA_CNF, status, handle );
+   \   0000A4                ; Setup parameters for call to function SAPI_SendCback
+   \   0000A4   741C         MOV     A,#0x1c
+   \   0000A6   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000A9   E0           MOVX    A,@DPTR
+   \   0000AA   FC           MOV     R4,A
+   \   0000AB   7D00         MOV     R5,#0x0
+   \   0000AD   79E0         MOV     R1,#-0x20
+   \   0000AF   12....       LCALL   `??SAPI_SendCback::?relay`; Banked call to: SAPI_SendCback
+     77            }
+     78          }
+   \                     ??my_SendDataRequest_0:
+   \   0000B2   740C         MOV     A,#0xc
+   \   0000B4   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000B7                REQUIRE ?Subroutine0
+   \   0000B7                ; // Fall through to label ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7F06         MOV     R7,#0x6
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+     79          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     80          void my_FindDevice(uint8 searchType, uint8 *searchKey)
+   \                     my_FindDevice:
+     81          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   89..         MOV     ?V0,R1
+     82            uint16 dAddr;
+     83            uint16 cmd;
+     84            uint8 dlen;
+     85            if (ZB_IEEE_SEARCH == searchType)  {
+   \   000007   7401         MOV     A,#0x1
+   \   000009   65..         XRL     A,?V0
+   \   00000B   702D         JNZ     ??my_FindDevice_0
+     86              dAddr = 0xffff;
+     87              cmd = 0xff01;
+     88              dlen = 8;
+     89              //my_SendDataRequest(searchKey, cmd, dlen, searchKey , 0, 0, AF_DEFAULT_RADIUS );
+     90              zb_SendDataRequest(dAddr, cmd, dlen, searchKey , 0, AF_ACK_REQUEST, AF_DEFAULT_RADIUS );
+   \   00000D                ; Setup parameters for call to function zb_SendDataRequest
+   \   00000D   75..1E       MOV     ?V1,#0x1e
+   \   000010   78..         MOV     R0,#?V1
+   \   000012   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000015   75..10       MOV     ?V1,#0x10
+   \   000018   78..         MOV     R0,#?V1
+   \   00001A   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   00001D   75..00       MOV     ?V1,#0x0
+   \   000020   78..         MOV     R0,#?V1
+   \   000022   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000025   8A..         MOV     ?V2,R2
+   \   000027   8B..         MOV     ?V3,R3
+   \   000029   78..         MOV     R0,#?V2
+   \   00002B   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00002E   7908         MOV     R1,#0x8
+   \   000030   7C01         MOV     R4,#0x1
+   \   000032   7DFF         MOV     R5,#-0x1
+   \   000034   7AFF         MOV     R2,#-0x1
+   \   000036   7BFF         MOV     R3,#-0x1
+   \   000038   8038         SJMP    ??my_FindDevice_1
+     91            }
+     92            if (ZB_NWKA_SEARCH == searchType) {
+   \                     ??my_FindDevice_0:
+   \   00003A   7402         MOV     A,#0x2
+   \   00003C   65..         XRL     A,?V0
+   \   00003E   703A         JNZ     ??my_FindDevice_2
+     93              dAddr = searchKey[0]<<8 | searchKey[1];
+     94              cmd = 0xff02;
+     95              dlen = 2;
+     96              zb_SendDataRequest(dAddr, cmd, dlen,searchKey , 0, AF_ACK_REQUEST, AF_DEFAULT_RADIUS );
+   \   000040                ; Setup parameters for call to function zb_SendDataRequest
+   \   000040   75..1E       MOV     ?V1,#0x1e
+   \   000043   78..         MOV     R0,#?V1
+   \   000045   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000048   75..10       MOV     ?V1,#0x10
+   \   00004B   78..         MOV     R0,#?V1
+   \   00004D   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000050   75..00       MOV     ?V1,#0x0
+   \   000053   78..         MOV     R0,#?V1
+   \   000055   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000058   8A..         MOV     ?V2,R2
+   \   00005A   8B..         MOV     ?V3,R3
+   \   00005C   78..         MOV     R0,#?V2
+   \   00005E   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000061   7902         MOV     R1,#0x2
+   \   000063   7C02         MOV     R4,#0x2
+   \   000065   7DFF         MOV     R5,#-0x1
+   \   000067   8A82         MOV     DPL,R2
+   \   000069   8B83         MOV     DPH,R3
+   \   00006B   E0           MOVX    A,@DPTR
+   \   00006C   FF           MOV     R7,A
+   \   00006D   A3           INC     DPTR
+   \   00006E   E0           MOVX    A,@DPTR
+   \   00006F   FA           MOV     R2,A
+   \   000070   EF           MOV     A,R7
+   \   000071   FB           MOV     R3,A
+   \                     ??my_FindDevice_1:
+   \   000072   12....       LCALL   `??zb_SendDataRequest::?relay`; Banked call to: zb_SendDataRequest
+   \   000075   7405         MOV     A,#0x5
+   \   000077   12....       LCALL   ?DEALLOC_XSTACK8
+     97            }
+     98           
+     99          }
+   \                     ??my_FindDevice_2:
+   \   00007A   7F04         MOV     R7,#0x4
+   \   00007C   02....       LJMP    ?BANKED_LEAVE_XDATA
+    100          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    101          static int my_FindDeviceProc( uint16 source, uint16 command, uint16 len, uint8 *pData) 
+   \                     my_FindDeviceProc:
+    102          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000   74F2         MOV     A,#-0xe
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V4,R2
+   \   000007   8B..         MOV     ?V5,R3
+   \   000009   740E         MOV     A,#0xe
+   \   00000B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00000E   E0           MOVX    A,@DPTR
+   \   00000F   F5..         MOV     ?V0,A
+   \   000011   A3           INC     DPTR
+   \   000012   E0           MOVX    A,@DPTR
+   \   000013   F5..         MOV     ?V1,A
+   \   000015   7410         MOV     A,#0x10
+   \   000017   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001A   E0           MOVX    A,@DPTR
+   \   00001B   FE           MOV     R6,A
+   \   00001C   A3           INC     DPTR
+   \   00001D   E0           MOVX    A,@DPTR
+   \   00001E   FF           MOV     R7,A
+    103            static uint8 dat[10];
+    104            
+    105            if (command == 0xff01) {
+   \   00001F   7401         MOV     A,#0x1
+   \   000021   6C           XRL     A,R4
+   \   000022   7003         JNZ     ??my_FindDeviceProc_0
+   \   000024   74FF         MOV     A,#-0x1
+   \   000026   6D           XRL     A,R5
+   \                     ??my_FindDeviceProc_0:
+   \   000027   7076         JNZ     ??my_FindDeviceProc_1
+    106              uint8 *pExtAddr = dat;
+    107              ZMacGetReq( ZMacExtAddr, pExtAddr );
+   \   000029                ; Setup parameters for call to function ZMacGetReq
+   \   000029   7A..         MOV     R2,#??dat & 0xff
+   \   00002B   7B..         MOV     R3,#(??dat >> 8) & 0xff
+   \   00002D   79E2         MOV     R1,#-0x1e
+   \   00002F   12....       LCALL   `??ZMacGetReq::?relay`; Banked call to: ZMacGetReq
+    108              if (len == Z_EXTADDR_LEN && TRUE == osal_memcmp(pData, pExtAddr, Z_EXTADDR_LEN)) {    
+   \   000032   7408         MOV     A,#0x8
+   \   000034   65..         XRL     A,?V0
+   \   000036   45..         ORL     A,?V1
+   \   000038   6003         JZ      $+5
+   \   00003A   02....       LJMP    ??my_FindDeviceProc_2 & 0xFFFF
+   \   00003D                ; Setup parameters for call to function osal_memcmp
+   \   00003D   75....       MOV     ?V0,#??dat & 0xff
+   \   000040   75....       MOV     ?V1,#(??dat >> 8) & 0xff
+   \   000043   75..00       MOV     ?V2,#0x0
+   \   000046   78..         MOV     R0,#?V0
+   \   000048   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   00004B   7C08         MOV     R4,#0x8
+   \   00004D   7D00         MOV     R5,#0x0
+   \   00004F   8E82         MOV     DPL,R6
+   \   000051   8F83         MOV     DPH,R7
+   \   000053   A982         MOV     R1,DPL
+   \   000055   AA83         MOV     R2,DPH
+   \   000057   7B00         MOV     R3,#0x0
+   \   000059   12....       LCALL   `??osal_memcmp::?relay`; Banked call to: osal_memcmp
+   \   00005C   7403         MOV     A,#0x3
+   \   00005E   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000061   E9           MOV     A,R1
+   \   000062   6401         XRL     A,#0x1
+   \   000064   6003         JZ      $+5
+   \   000066   02....       LJMP    ??my_FindDeviceProc_2 & 0xFFFF
+    109                dat[8] = NLME_GetShortAddr();
+   \   000069                ; Setup parameters for call to function NLME_GetShortAddr
+   \   000069   12....       LCALL   `??NLME_GetShortAddr::?relay`; Banked call to: NLME_GetShortAddr
+   \   00006C   EA           MOV     A,R2
+   \   00006D   90....       MOV     DPTR,#??dat + 8
+   \   000070   F0           MOVX    @DPTR,A
+    110                dat[9] = NLME_GetShortAddr() >> 8;
+   \   000071                ; Setup parameters for call to function NLME_GetShortAddr
+   \   000071   12....       LCALL   `??NLME_GetShortAddr::?relay`; Banked call to: NLME_GetShortAddr
+   \   000074   EB           MOV     A,R3
+   \   000075   90....       MOV     DPTR,#??dat + 9
+   \   000078   F0           MOVX    @DPTR,A
+    111                zb_SendDataRequest(source, 0xfe01, 10, dat, 0, AF_ACK_REQUEST, AF_DEFAULT_RADIUS);
+   \   000079                ; Setup parameters for call to function zb_SendDataRequest
+   \   000079   75..1E       MOV     ?V0,#0x1e
+   \   00007C   78..         MOV     R0,#?V0
+   \   00007E   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000081   75..10       MOV     ?V0,#0x10
+   \   000084   78..         MOV     R0,#?V0
+   \   000086   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000089   75..00       MOV     ?V0,#0x0
+   \   00008C   78..         MOV     R0,#?V0
+   \   00008E   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000091   75....       MOV     ?V0,#??dat & 0xff
+   \   000094   78..         MOV     R0,#?V0
+   \   000096   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000099   790A         MOV     R1,#0xa
+   \   00009B   7C01         MOV     R4,#0x1
+   \   00009D   8066         SJMP    ??my_FindDeviceProc_3
+    112              }
+    113              return 1;
+    114            }
+    115            if (command == 0xff02) {
+   \                     ??my_FindDeviceProc_1:
+   \   00009F   7402         MOV     A,#0x2
+   \   0000A1   6C           XRL     A,R4
+   \   0000A2   7003         JNZ     ??my_FindDeviceProc_4
+   \   0000A4   74FF         MOV     A,#-0x1
+   \   0000A6   6D           XRL     A,R5
+   \                     ??my_FindDeviceProc_4:
+   \   0000A7   706C         JNZ     ??my_FindDeviceProc_5
+    116              uint16 sa = NLME_GetShortAddr();
+   \   0000A9                ; Setup parameters for call to function NLME_GetShortAddr
+   \   0000A9   12....       LCALL   `??NLME_GetShortAddr::?relay`; Banked call to: NLME_GetShortAddr
+   \   0000AC   8A..         MOV     ?V2,R2
+   \   0000AE   8B..         MOV     ?V3,R3
+   \   0000B0   A8..         MOV     R0,?V2
+   \   0000B2   A9..         MOV     R1,?V3
+    117              if (len == 2 && (pData[0]<<8 | pData[1]) == sa) {
+   \   0000B4   7402         MOV     A,#0x2
+   \   0000B6   65..         XRL     A,?V0
+   \   0000B8   45..         ORL     A,?V1
+   \   0000BA   707B         JNZ     ??my_FindDeviceProc_2
+   \   0000BC   8E82         MOV     DPL,R6
+   \   0000BE   8F83         MOV     DPH,R7
+   \   0000C0   E0           MOVX    A,@DPTR
+   \   0000C1   FB           MOV     R3,A
+   \   0000C2   A3           INC     DPTR
+   \   0000C3   E0           MOVX    A,@DPTR
+   \   0000C4   FA           MOV     R2,A
+   \   0000C5   E8           MOV     A,R0
+   \   0000C6   6A           XRL     A,R2
+   \   0000C7   7002         JNZ     ??my_FindDeviceProc_6
+   \   0000C9   E9           MOV     A,R1
+   \   0000CA   6B           XRL     A,R3
+   \                     ??my_FindDeviceProc_6:
+   \   0000CB   706A         JNZ     ??my_FindDeviceProc_2
+    118                dat[0] = sa;
+   \   0000CD   E8           MOV     A,R0
+   \   0000CE   90....       MOV     DPTR,#??dat
+   \   0000D1   F0           MOVX    @DPTR,A
+    119                dat[1] = sa>>8;
+   \   0000D2   E9           MOV     A,R1
+   \   0000D3   A3           INC     DPTR
+   \   0000D4   F0           MOVX    @DPTR,A
+    120                ZMacGetReq( ZMacExtAddr, &dat[2] );
+   \   0000D5                ; Setup parameters for call to function ZMacGetReq
+   \   0000D5   7A..         MOV     R2,#(??dat + 2) & 0xff
+   \   0000D7   7B..         MOV     R3,#((??dat + 2) >> 8) & 0xff
+   \   0000D9   79E2         MOV     R1,#-0x1e
+   \   0000DB   12....       LCALL   `??ZMacGetReq::?relay`; Banked call to: ZMacGetReq
+    121                zb_SendDataRequest(source, 0xfe02, 10, dat, 0, AF_ACK_REQUEST, AF_DEFAULT_RADIUS);
+   \   0000DE                ; Setup parameters for call to function zb_SendDataRequest
+   \   0000DE   75..1E       MOV     ?V0,#0x1e
+   \   0000E1   78..         MOV     R0,#?V0
+   \   0000E3   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   0000E6   75..10       MOV     ?V0,#0x10
+   \   0000E9   78..         MOV     R0,#?V0
+   \   0000EB   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   0000EE   75..00       MOV     ?V0,#0x0
+   \   0000F1   78..         MOV     R0,#?V0
+   \   0000F3   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   0000F6   75....       MOV     ?V0,#??dat & 0xff
+   \   0000F9   75....       MOV     ?V1,#(??dat >> 8) & 0xff
+   \   0000FC   78..         MOV     R0,#?V0
+   \   0000FE   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000101   790A         MOV     R1,#0xa
+   \   000103   7C02         MOV     R4,#0x2
+   \                     ??my_FindDeviceProc_3:
+   \   000105   7DFE         MOV     R5,#-0x2
+   \   000107   AA..         MOV     R2,?V4
+   \   000109   AB..         MOV     R3,?V5
+   \   00010B   12....       LCALL   `??zb_SendDataRequest::?relay`; Banked call to: zb_SendDataRequest
+   \   00010E   7405         MOV     A,#0x5
+   \   000110   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000113   8022         SJMP    ??my_FindDeviceProc_2
+    122              }
+    123              return 1;
+    124            }
+    125            if (command == 0xfe01) {
+   \                     ??my_FindDeviceProc_5:
+   \   000115   7401         MOV     A,#0x1
+   \   000117   6C           XRL     A,R4
+   \   000118   7003         JNZ     ??my_FindDeviceProc_7
+   \   00011A   74FE         MOV     A,#-0x2
+   \   00011C   6D           XRL     A,R5
+   \                     ??my_FindDeviceProc_7:
+   \   00011D   701C         JNZ     ??my_FindDeviceProc_8
+    126              if (len == 10) {
+   \   00011F   740A         MOV     A,#0xa
+   \   000121   65..         XRL     A,?V0
+   \   000123   45..         ORL     A,?V1
+   \   000125   7010         JNZ     ??my_FindDeviceProc_2
+    127                my_FindDeviceConfirm(ZB_IEEE_SEARCH, pData, (unsigned char *)&pData[8]);
+   \   000127                ; Setup parameters for call to function zb_FindDeviceConfirm
+   \   000127   EE           MOV     A,R6
+   \   000128   2408         ADD     A,#0x8
+   \   00012A   FC           MOV     R4,A
+   \   00012B   E4           CLR     A
+   \   00012C   3F           ADDC    A,R7
+   \   00012D   FD           MOV     R5,A
+   \   00012E   EE           MOV     A,R6
+   \   00012F   FA           MOV     R2,A
+   \   000130   EF           MOV     A,R7
+   \   000131   FB           MOV     R3,A
+   \   000132   7901         MOV     R1,#0x1
+   \   000134   12....       LCALL   `??zb_FindDeviceConfirm::?relay`; Banked call to: zb_FindDeviceConfirm
+    128              }
+    129              return 1;
+   \                     ??my_FindDeviceProc_2:
+   \   000137   7A01         MOV     R2,#0x1
+   \   000139   8024         SJMP    ??my_FindDeviceProc_9
+    130            }
+    131            if (command == 0xfe02) {
+   \                     ??my_FindDeviceProc_8:
+   \   00013B   7402         MOV     A,#0x2
+   \   00013D   6C           XRL     A,R4
+   \   00013E   7003         JNZ     ??my_FindDeviceProc_10
+   \   000140   74FE         MOV     A,#-0x2
+   \   000142   6D           XRL     A,R5
+   \                     ??my_FindDeviceProc_10:
+   \   000143   7018         JNZ     ??my_FindDeviceProc_11
+    132              if (len == 10) {
+   \   000145   740A         MOV     A,#0xa
+   \   000147   65..         XRL     A,?V0
+   \   000149   45..         ORL     A,?V1
+   \   00014B   7010         JNZ     ??my_FindDeviceProc_11
+    133                my_FindDeviceConfirm(ZB_NWKA_SEARCH, pData, (unsigned char *)&pData[2]);
+   \   00014D                ; Setup parameters for call to function zb_FindDeviceConfirm
+   \   00014D   EE           MOV     A,R6
+   \   00014E   2402         ADD     A,#0x2
+   \   000150   FC           MOV     R4,A
+   \   000151   E4           CLR     A
+   \   000152   3F           ADDC    A,R7
+   \   000153   FD           MOV     R5,A
+   \   000154   EE           MOV     A,R6
+   \   000155   FA           MOV     R2,A
+   \   000156   EF           MOV     A,R7
+   \   000157   FB           MOV     R3,A
+   \   000158   7902         MOV     R1,#0x2
+   \   00015A   12....       LCALL   `??zb_FindDeviceConfirm::?relay`; Banked call to: zb_FindDeviceConfirm
+    134              }
+    135            }
+    136            return 0;
+   \                     ??my_FindDeviceProc_11:
+   \   00015D   7A00         MOV     R2,#0x0
+   \                     ??my_FindDeviceProc_9:
+   \   00015F   7B00         MOV     R3,#0x0
+   \   000161   02....       LJMP    ?Subroutine0 & 0xFFFF
+    137          }
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     ??dat:
+   \   000000                DS 10
+   \   00000A                REQUIRE __INIT_XDATA_Z
+    138          extern void _zb_ReceiveDataIndication( uint16 source, uint16 command, uint16 len, uint8 *pData  );
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    139          void _zb_ReceiveDataIndication( uint16 source, uint16 command, uint16 len, uint8 *pData  )
+   \                     _zb_ReceiveDataIndication:
+    140          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000                REQUIRE ?V6
+   \   000000                REQUIRE ?V7
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V2,R2
+   \   000007   8B..         MOV     ?V3,R3
+   \   000009   8C..         MOV     ?V0,R4
+   \   00000B   8D..         MOV     ?V1,R5
+   \   00000D   7410         MOV     A,#0x10
+   \   00000F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000012   E0           MOVX    A,@DPTR
+   \   000013   FE           MOV     R6,A
+   \   000014   A3           INC     DPTR
+   \   000015   E0           MOVX    A,@DPTR
+   \   000016   FF           MOV     R7,A
+   \   000017   7412         MOV     A,#0x12
+   \   000019   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001C   E0           MOVX    A,@DPTR
+   \   00001D   F5..         MOV     ?V6,A
+   \   00001F   A3           INC     DPTR
+   \   000020   E0           MOVX    A,@DPTR
+   \   000021   F5..         MOV     ?V7,A
+    141            if (my_FindDeviceProc(source, command, len, pData) != 0) return;
+   \   000023                ; Setup parameters for call to function my_FindDeviceProc
+   \   000023   78..         MOV     R0,#?V6
+   \   000025   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000028   8E..         MOV     ?V4,R6
+   \   00002A   8F..         MOV     ?V5,R7
+   \   00002C   78..         MOV     R0,#?V4
+   \   00002E   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000031   12....       LCALL   `??my_FindDeviceProc::?relay`; Banked call to: my_FindDeviceProc
+   \   000034   7404         MOV     A,#0x4
+   \   000036   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000039   8B..         MOV     ?V5,R3
+   \   00003B   EA           MOV     A,R2
+   \   00003C   45..         ORL     A,?V5
+   \   00003E   701C         JNZ     ??_zb_ReceiveDataIndication_0
+    142            zb_ReceiveDataIndication(source, command, len, pData);
+   \   000040                ; Setup parameters for call to function zb_ReceiveDataIndication
+   \   000040   78..         MOV     R0,#?V6
+   \   000042   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000045   8F..         MOV     ?V5,R7
+   \   000047   78..         MOV     R0,#?V4
+   \   000049   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00004C   AC..         MOV     R4,?V0
+   \   00004E   AD..         MOV     R5,?V1
+   \   000050   AA..         MOV     R2,?V2
+   \   000052   AB..         MOV     R3,?V3
+   \   000054   12....       LCALL   `??zb_ReceiveDataIndication::?relay`; Banked call to: zb_ReceiveDataIndication
+   \   000057   7404         MOV     A,#0x4
+   \   000059   12....       LCALL   ?DEALLOC_XSTACK8
+    143          }
+   \                     ??_zb_ReceiveDataIndication_0:
+   \   00005C   7F08         MOV     R7,#0x8
+   \   00005E   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??my_SendDataRequest::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    my_SendDataRequest
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??my_FindDevice::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    my_FindDevice
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??my_FindDeviceProc::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    my_FindDeviceProc
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??_zb_ReceiveDataIndication::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    _zb_ReceiveDataIndication
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      0     24   _zb_ReceiveDataIndication
+        0     20   -> my_FindDeviceProc
+        0     20   -> zb_ReceiveDataIndication
+      0     17   my_FindDevice
+        0     17   -> zb_SendDataRequest
+      0     39   my_FindDeviceProc
+        0     14   -> NLME_GetShortAddr
+        0     14   -> ZMacGetReq
+        0     17   -> osal_memcmp
+        0     14   -> zb_FindDeviceConfirm
+        0     19   -> zb_SendDataRequest
+      1     40   my_SendDataRequest
+        0     35   -> AF_DataRequest
+        0     26   -> SAPI_SendCback
+        0     29   -> osal_memcpy
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       5  ?Subroutine0
+      97  _zb_ReceiveDataIndication
+       6  _zb_ReceiveDataIndication::?relay
+      10  dat
+     127  my_FindDevice
+       6  my_FindDevice::?relay
+     356  my_FindDeviceProc
+       6  my_FindDeviceProc::?relay
+     183  my_SendDataRequest
+       6  my_SendDataRequest::?relay
+
+ 
+ 768 bytes in segment BANKED_CODE
+  24 bytes in segment BANK_RELAYS
+  10 bytes in segment XDATA_Z
+ 
+  24 bytes of CODE     memory
+ 768 bytes of HUGECODE memory
+  10 bytes of XDATA    memory
+
+Errors: none
+Warnings: none

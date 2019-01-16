@@ -1,0 +1,733 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V9.30.3.3983 for 8051                25/Apr/2017  12:05:39
+# Copyright 2004-2016 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\Source\info.c
+#    Command line       =  
+#        -f "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\Tools\CC2530DB\f8wCoord.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+#        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+#        -DZDO_COORDINATOR -DRTR_NWK) -f "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig-top.cfg"
+#        (-DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x2100
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=TRUE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)
+#        -DREJOIN_POLL_RATE=440 "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\Source\info.c"
+#        -D HOLD_AUTO_START -D BUILD_ALL_DEVICES -D REFLECTOR -D NV_INIT -D
+#        xNV_RESTORE -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D xMT_SAPI_FUNC -D
+#        xMT_SAPI_CB_FUNC -D STARTEST -D LCD_USE -lC "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\MPCoordinator\List"
+#        -lA "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\MPCoordinator\List"
+#        --diag_suppress Pe001,Pa010 -o "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\MPCoordinator\Obj"
+#        -e --no_code_motion --debug --core=plain --dptr=16,1
+#        --data_model=large --code_model=banked
+#        --calling_convention=xdata_reentrant --place_constants=data_rom
+#        --nr_virtual_regs 8 -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\Source\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\osal\mcu\ccsoc\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz --require_prototypes
+#    List file          =  
+#        C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\MPCoordinator\List\info.lst
+#    Object file        =  
+#        C:\Texas
+#        Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\CC2530DB\MPCoordinator\Obj\info.r51
+#
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.4.0-1.4.0\Projects\zstack\Samples\NetworkTopology-Star\Source\info.c
+      1          /*********************************************************************************************
+      2          * 文件：info.c
+      3          * 作者：liutong 2016.7.20
+      4          * 说明：通过串口控制LCD显示的相关程序
+      5          * 修改：
+      6          * 注释：
+      7          *********************************************************************************************/
+      8          #include <ioCC2530.h>            
+
+   \                                 In  segment SFR_AN, at 0x86
+   \   unsigned char volatile __sfr U0CSR
+   \                     U0CSR:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xc1
+   \   unsigned char volatile __sfr U0DBUF
+   \                     U0DBUF:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xc2
+   \   unsigned char volatile __sfr U0BAUD
+   \                     U0BAUD:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xc4
+   \   unsigned char volatile __sfr U0UCR
+   \                     U0UCR:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xc5
+   \   unsigned char volatile __sfr U0GCR
+   \                     U0GCR:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xe8
+   \   union <unnamed> volatile __sfr _A_IRCON2
+   \                     _A_IRCON2:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf1
+   \   unsigned char volatile __sfr PERCFG
+   \                     PERCFG:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf3
+   \   unsigned char volatile __sfr P0SEL
+   \                     P0SEL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xff
+   \   unsigned char volatile __sfr P2DIR
+   \                     P2DIR:
+   \   000000                DS 1
+      9          #include <stdio.h>
+     10          #include "info.h"
+     11          #include "string.h"
+     12          #include "OnBoard.h"
+     13          #define HAL_INFOP_IEEE_OSET        0xC                          //mac地址偏移量
+     14          #define halWait(x) halMcuWaitMs(x)
+     15          
+     16          /*********************************************************************************************
+     17          * 名称：lcd_dis
+     18          * 功能：通过串口控制LCD显示实验内容和节点的MAC
+     19          * 参数：无
+     20          * 返回：无
+     21          * 修改：
+     22          * 注释：
+     23          *********************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     24          void lcd_dis(void){
+   \                     lcd_dis:
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 38
+   \   000005   74DA         MOV     A,#-0x26
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+     25            for(unsigned char i = 0;i<2;i++){                              //发送TYPE,发2遍
+   \   00000A   7E02         MOV     R6,#0x2
+     26              Uart_Send_String("{TYPE=06205}");                            //星状网实验
+   \                     ??lcd_dis_0:
+   \   00000C                ; Setup parameters for call to function Uart_Send_String
+   \   00000C   7A..         MOV     R2,#`?<Constant "{TYPE=06205}">` & 0xff
+   \   00000E   7B..         MOV     R3,#(`?<Constant "{TYPE=06205}">` >> 8) & 0xff
+   \   000010   12....       LCALL   `??Uart_Send_String::?relay`; Banked call to: Uart_Send_String
+     27              halWait(250);
+   \   000013                ; Setup parameters for call to function halMcuWaitMs
+   \   000013   7AFA         MOV     R2,#-0x6
+   \   000015   7B00         MOV     R3,#0x0
+   \   000017   12....       LCALL   `??halMcuWaitMs::?relay`; Banked call to: halMcuWaitMs
+     28              halWait(250);
+   \   00001A                ; Setup parameters for call to function halMcuWaitMs
+   \   00001A   7AFA         MOV     R2,#-0x6
+   \   00001C   7B00         MOV     R3,#0x0
+   \   00001E   12....       LCALL   `??halMcuWaitMs::?relay`; Banked call to: halMcuWaitMs
+     29            }
+   \   000021   DEE9         DJNZ    R6,??lcd_dis_0
+     30            
+     31            halWait(250);
+   \   000023                ; Setup parameters for call to function halMcuWaitMs
+   \   000023   7AFA         MOV     R2,#-0x6
+   \   000025   7B00         MOV     R3,#0x0
+   \   000027   12....       LCALL   `??halMcuWaitMs::?relay`; Banked call to: halMcuWaitMs
+     32            halWait(250);
+   \   00002A                ; Setup parameters for call to function halMcuWaitMs
+   \   00002A   7AFA         MOV     R2,#-0x6
+   \   00002C   7B00         MOV     R3,#0x0
+   \   00002E   12....       LCALL   `??halMcuWaitMs::?relay`; Banked call to: halMcuWaitMs
+     33            char CC2530_MAC[30] = {0};                                     //存放MAC
+   \   000031   90....       MOV     DPTR,#`?<Constant {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0`
+   \   000034   7408         MOV     A,#0x8
+   \   000036   12....       LCALL   ?XSTACK_DISP102_8
+   \   000039   741E         MOV     A,#0x1e
+   \   00003B   12....       LCALL   ?MOVE_LONG8_XDATA_XDATA
+     34            char devmacaddr[8];
+     35            unsigned char *macaddrptr = (unsigned char *)(P_INFOPAGE+HAL_INFOP_IEEE_OSET);
+     36            for(int i=0;i<8;i++) {
+   \   00003E   F8           MOV     R0,A
+   \   00003F   F9           MOV     R1,A
+     37              devmacaddr[i] = macaddrptr[i];                              //获取mac地址
+   \                     ??lcd_dis_1:
+   \   000040   740C         MOV     A,#0xc
+   \   000042   28           ADD     A,R0
+   \   000043   F582         MOV     DPL,A
+   \   000045   7478         MOV     A,#0x78
+   \   000047   39           ADDC    A,R1
+   \   000048   F583         MOV     DPH,A
+   \   00004A   E0           MOVX    A,@DPTR
+   \   00004B   C0E0         PUSH    A
+   \   00004D   85..82       MOV     DPL,?XSP + 0
+   \   000050   85..83       MOV     DPH,?XSP + 1
+   \   000053   E582         MOV     A,DPL
+   \   000055   28           ADD     A,R0
+   \   000056   F582         MOV     DPL,A
+   \   000058   E583         MOV     A,DPH
+   \   00005A   39           ADDC    A,R1
+   \   00005B   F583         MOV     DPH,A
+   \   00005D   D0E0         POP     A
+   \   00005F   F0           MOVX    @DPTR,A
+     38            }
+   \   000060   08           INC     R0
+   \   000061   E8           MOV     A,R0
+   \   000062   7001         JNZ     ??lcd_dis_2
+   \   000064   09           INC     R1
+   \                     ??lcd_dis_2:
+   \   000065   C3           CLR     C
+   \   000066   9408         SUBB    A,#0x8
+   \   000068   E9           MOV     A,R1
+   \   000069   9400         SUBB    A,#0x0
+   \   00006B   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   00006D   65D0         XRL     A,PSW
+   \   00006F   33           RLC     A
+   \   000070   40CE         JC      ??lcd_dis_1
+     39            strcat(CC2530_MAC,"{MAC=");
+   \   000072                ; Setup parameters for call to function strcat
+   \   000072   7C..         MOV     R4,#`?<Constant "{MAC=">` & 0xff
+   \   000074   7D..         MOV     R5,#(`?<Constant "{MAC=">` >> 8) & 0xff
+   \   000076   7408         MOV     A,#0x8
+   \   000078   12....       LCALL   ?XSTACK_DISP101_8
+   \   00007B   12....       LCALL   `??strcat::?relay`   ; Banked call to: strcat
+     40            sprintf(&CC2530_MAC[5],"%02X:%02X:%02X:%02X:%02X:%02X:%02X:%02X",
+     41                                    devmacaddr[7],devmacaddr[6],devmacaddr[5],
+     42                                    devmacaddr[4],devmacaddr[3],devmacaddr[2],
+     43                                    devmacaddr[1],devmacaddr[0]);
+   \   00007E                ; Setup parameters for call to function sprintf
+   \   00007E   85..82       MOV     DPL,?XSP + 0
+   \   000081   85..83       MOV     DPH,?XSP + 1
+   \   000084   E0           MOVX    A,@DPTR
+   \   000085   F5..         MOV     ?V0,A
+   \   000087   75..00       MOV     ?V1,#0x0
+   \   00008A   78..         MOV     R0,#?V0
+   \   00008C   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00008F   7403         MOV     A,#0x3
+   \   000091   12....       LCALL   ?XSTACK_DISP0_8
+   \   000094   12....       LCALL   ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   000097   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00009A   7406         MOV     A,#0x6
+   \   00009C   12....       LCALL   ?XSTACK_DISP0_8
+   \   00009F   12....       LCALL   ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   0000A2   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000A5   7409         MOV     A,#0x9
+   \   0000A7   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000AA   12....       LCALL   ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   0000AD   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000B0   740C         MOV     A,#0xc
+   \   0000B2   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000B5   12....       LCALL   ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   0000B8   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000BB   740F         MOV     A,#0xf
+   \   0000BD   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000C0   12....       LCALL   ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   0000C3   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000C6   7412         MOV     A,#0x12
+   \   0000C8   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000CB   12....       LCALL   ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   0000CE   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000D1   7415         MOV     A,#0x15
+   \   0000D3   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000D6   12....       LCALL   ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_6:
+   \   0000D9   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000DC   7C..         MOV     R4,#`?<Constant "%02X:%02X:%02X:%02X:%...">` & 0xff
+   \   0000DE   7D..         MOV     R5,#(`?<Constant "%02X:%02X:%02X:%02X:%...">` >> 8) & 0xff
+   \   0000E0   741D         MOV     A,#0x1d
+   \   0000E2   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000E5   AA82         MOV     R2,DPL
+   \   0000E7   AB83         MOV     R3,DPH
+   \   0000E9   12....       LCALL   `??sprintf::?relay`  ; Banked call to: sprintf
+   \   0000EC   7410         MOV     A,#0x10
+   \   0000EE   12....       LCALL   ?DEALLOC_XSTACK8
+     44            CC2530_MAC[28]='}';
+   \   0000F1   7424         MOV     A,#0x24
+   \   0000F3   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000F6   747D         MOV     A,#0x7d
+   \   0000F8   F0           MOVX    @DPTR,A
+     45             for(unsigned char i = 0;i<2;i++){                            //发送MAC，发2遍
+   \   0000F9   7E02         MOV     R6,#0x2
+     46             Uart_Send_String(CC2530_MAC);  
+   \                     ??lcd_dis_3:
+   \   0000FB                ; Setup parameters for call to function Uart_Send_String
+   \   0000FB   7408         MOV     A,#0x8
+   \   0000FD   12....       LCALL   ?XSTACK_DISP101_8
+   \   000100   12....       LCALL   `??Uart_Send_String::?relay`; Banked call to: Uart_Send_String
+     47             halWait(250);
+   \   000103                ; Setup parameters for call to function halMcuWaitMs
+   \   000103   7AFA         MOV     R2,#-0x6
+   \   000105   7B00         MOV     R3,#0x0
+   \   000107   12....       LCALL   `??halMcuWaitMs::?relay`; Banked call to: halMcuWaitMs
+     48             halWait(250);
+   \   00010A                ; Setup parameters for call to function halMcuWaitMs
+   \   00010A   7AFA         MOV     R2,#-0x6
+   \   00010C   7B00         MOV     R3,#0x0
+   \   00010E   12....       LCALL   `??halMcuWaitMs::?relay`; Banked call to: halMcuWaitMs
+     49            }
+   \   000111   DEE8         DJNZ    R6,??lcd_dis_3
+     50          }
+   \   000113   7426         MOV     A,#0x26
+   \   000115   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000118   7F02         MOV     R7,#0x2
+   \   00011A   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F5..         MOV     ?V0,A
+   \   000003   78..         MOV     R0,#?V0
+   \   000005   22           RET
+     51          /*********************************************************************************************
+     52          * 名称：halMcuWaitMs
+     53          * 功能：毫秒延时函数
+     54          * 参数：无
+     55          * 返回：无
+     56          * 修改：
+     57          * 注释：
+     58          *********************************************************************************************/
+     59          #pragma optimize=none
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     60          void halMcuWaitMs(uint16 msec){
+   \                     halMcuWaitMs:
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+     61            while(msec--)
+   \                     ??halMcuWaitMs_0:
+   \   000009   EE           MOV     A,R6
+   \   00000A   F8           MOV     R0,A
+   \   00000B   EF           MOV     A,R7
+   \   00000C   F9           MOV     R1,A
+   \   00000D   E8           MOV     A,R0
+   \   00000E   24FF         ADD     A,#-0x1
+   \   000010   FE           MOV     R6,A
+   \   000011   E9           MOV     A,R1
+   \   000012   34FF         ADDC    A,#-0x1
+   \   000014   FF           MOV     R7,A
+   \   000015   E8           MOV     A,R0
+   \   000016   49           ORL     A,R1
+   \   000017   6009         JZ      ??halMcuWaitMs_1
+     62              halMcuWaitUs(1000);
+   \   000019                ; Setup parameters for call to function halMcuWaitUs
+   \   000019   7AE8         MOV     R2,#-0x18
+   \   00001B   7B03         MOV     R3,#0x3
+   \   00001D   12....       LCALL   `??halMcuWaitUs::?relay`; Banked call to: halMcuWaitUs
+   \   000020   80E7         SJMP    ??halMcuWaitMs_0
+     63          
+     64          }
+   \                     ??halMcuWaitMs_1:
+   \   000022   7F01         MOV     R7,#0x1
+   \   000024   02....       LJMP    ?BANKED_LEAVE_XDATA
+     65          /*********************************************************************************************
+     66          * 名称：halMcuWaitUs
+     67          * 功能：微秒延时函数
+     68          * 参数：无
+     69          * 返回：无
+     70          * 修改：
+     71          * 注释：
+     72          *********************************************************************************************/
+     73          #pragma optimize=none
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     74          void halMcuWaitUs(uint16 usec)
+   \                     halMcuWaitUs:
+     75          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     76              usec>>= 1;
+   \   000000   EB           MOV     A,R3
+   \   000001   C3           CLR     C
+   \   000002   13           RRC     A
+   \   000003   FB           MOV     R3,A
+   \   000004   EA           MOV     A,R2
+   \   000005   13           RRC     A
+   \   000006   FA           MOV     R2,A
+     77              while(usec--)
+   \                     ??halMcuWaitUs_0:
+   \   000007   EA           MOV     A,R2
+   \   000008   F8           MOV     R0,A
+   \   000009   EB           MOV     A,R3
+   \   00000A   F9           MOV     R1,A
+   \   00000B   E8           MOV     A,R0
+   \   00000C   24FF         ADD     A,#-0x1
+   \   00000E   FA           MOV     R2,A
+   \   00000F   E9           MOV     A,R1
+   \   000010   34FF         ADDC    A,#-0x1
+   \   000012   FB           MOV     R3,A
+   \   000013   E8           MOV     A,R0
+   \   000014   49           ORL     A,R1
+   \   000015   6013         JZ      ??halMcuWaitUs_1
+     78              {
+     79                  asm("NOP");
+   \   000017   00           NOP
+     80                  asm("NOP");
+   \   000018   00           NOP
+     81                  asm("NOP");
+   \   000019   00           NOP
+     82                  asm("NOP");
+   \   00001A   00           NOP
+     83                  asm("NOP");
+   \   00001B   00           NOP
+     84                  asm("NOP");
+   \   00001C   00           NOP
+     85                  asm("NOP");
+   \   00001D   00           NOP
+     86                  asm("NOP");
+   \   00001E   00           NOP
+     87                  asm("NOP");
+   \   00001F   00           NOP
+     88                  asm("NOP");
+   \   000020   00           NOP
+     89                  asm("NOP");
+   \   000021   00           NOP
+     90                  asm("NOP");
+   \   000022   00           NOP
+     91                  asm("NOP");
+   \   000023   00           NOP
+     92                  asm("NOP");
+   \   000024   00           NOP
+     93                  asm("NOP");
+   \   000025   00           NOP
+     94                  asm("NOP");
+   \   000026   00           NOP
+     95                  asm("NOP");
+   \   000027   00           NOP
+   \   000028   80DD         SJMP    ??halMcuWaitUs_0
+     96              }
+     97          }
+   \                     ??halMcuWaitUs_1:
+   \   00002A   02....       LJMP    ?BRET
+     98          /*uart0初始化
+     99          -------------------------------------------------------*/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    100          void uart0_init(unsigned char StopBits,unsigned char Parity)
+   \                     uart0_init:
+    101          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    102            P0SEL |=  0x0C;                 //初始化UART0端口
+   \   000000   43F30C       ORL     0xf3,#0xc
+    103            PERCFG&= ~0x01;                 //选择UART0为可选位置一
+   \   000003   53F1FE       ANL     0xf1,#0xfe
+    104            P2DIR &= ~0xC0;                 //P0优先作为串口0
+   \   000006   53FF3F       ANL     0xff,#0x3f
+    105            U0CSR = 0xC0;                   //设置为UART模式,而且使能接受器
+   \   000009   7586C0       MOV     0x86,#-0x40
+    106             
+    107            U0GCR = 0x0A;                  
+   \   00000C   75C50A       MOV     0xc5,#0xa
+    108            U0BAUD = 0x3B;                  //波特率设置为38400
+   \   00000F   75C23B       MOV     0xc2,#0x3b
+    109            
+    110            U0UCR |= StopBits|Parity;       //设置停止位与奇偶校验
+   \   000012   E9           MOV     A,R1
+   \   000013   4A           ORL     A,R2
+   \   000014   42C4         ORL     0xc4,A
+    111          }
+   \   000016   02....       LJMP    ?BRET
+   \   000019                REQUIRE P0SEL
+   \   000019                REQUIRE PERCFG
+   \   000019                REQUIRE P2DIR
+   \   000019                REQUIRE U0CSR
+   \   000019                REQUIRE U0GCR
+   \   000019                REQUIRE U0BAUD
+   \   000019                REQUIRE U0UCR
+    112          /*串口发送字节函数
+    113          -------------------------------------------------------*/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    114          void Uart_Send_char(char ch)
+   \                     Uart_Send_char:
+    115          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    116            U0DBUF = ch;
+   \   000000   89C1         MOV     0xc1,R1
+    117            while(UTX0IF == 0);
+   \                     ??Uart_Send_char_0:
+   \   000002   A2E9         MOV     C,0xe8.1
+   \   000004   50FC         JNC     ??Uart_Send_char_0
+    118            UTX0IF = 0;
+   \   000006   C2E9         CLR     0xe8.1
+    119          }
+   \   000008   02....       LJMP    ?BRET
+   \   00000B                REQUIRE U0DBUF
+   \   00000B                REQUIRE _A_IRCON2
+    120          
+    121          /*串口发送字符串函数
+    122          -------------------------------------------------------*/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    123          void Uart_Send_String(char *Data)
+   \                     Uart_Send_String:
+    124          {  
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+   \   000009   800D         SJMP    ??Uart_Send_String_0
+    125            while (*Data != '\0')
+    126            {
+    127              Uart_Send_char(*Data++);
+   \                     ??Uart_Send_String_1:
+   \   00000B                ; Setup parameters for call to function Uart_Send_char
+   \   00000B   F9           MOV     R1,A
+   \   00000C   12....       LCALL   `??Uart_Send_char::?relay`; Banked call to: Uart_Send_char
+   \   00000F   8E82         MOV     DPL,R6
+   \   000011   8F83         MOV     DPH,R7
+   \   000013   A3           INC     DPTR
+   \   000014   AE82         MOV     R6,DPL
+   \   000016   AF83         MOV     R7,DPH
+    128            }
+   \                     ??Uart_Send_String_0:
+   \   000018   8E82         MOV     DPL,R6
+   \   00001A   8F83         MOV     DPH,R7
+   \   00001C   E0           MOVX    A,@DPTR
+   \   00001D   70EC         JNZ     ??Uart_Send_String_1
+    129          }
+   \   00001F   7F01         MOV     R7,#0x1
+   \   000021   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??lcd_dis::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    lcd_dis
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??halMcuWaitMs::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    halMcuWaitMs
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??halMcuWaitUs::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    halMcuWaitUs
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??uart0_init::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    uart0_init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??Uart_Send_char::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Uart_Send_char
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??Uart_Send_String::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Uart_Send_String
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "{TYPE=06205}">`:
+   \   000000   7B545950     DB "{TYPE=06205}"
+   \            453D3036
+   \            3230357D
+   \            00      
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0`:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   00           DB 0
+   \   000007   00           DB 0
+   \   000008   00           DB 0
+   \   000009   00           DB 0
+   \   00000A   00           DB 0
+   \   00000B   00           DB 0
+   \   00000C   00           DB 0
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   \   000010   00           DB 0
+   \   000011   00           DB 0
+   \   000012   00           DB 0
+   \   000013   00           DB 0
+   \   000014   00           DB 0
+   \   000015   00           DB 0
+   \   000016   00           DB 0
+   \   000017   00           DB 0
+   \   000018   00           DB 0
+   \   000019   00           DB 0
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   00           DB 0
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "{MAC=">`:
+   \   000000   7B4D4143     DB "{MAC="
+   \            3D00    
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "%02X:%02X:%02X:%02X:%...">`:
+   \   000000   25303258     DB "%02X:%02X:%02X:%02X:%02X:%02X:%02X:%02X"
+   \            3A253032
+   \            583A2530
+   \            32583A25
+   \            3032583A
+   \            25303258
+   \            3A253032
+   \            583A2530
+   \            32583A25
+   \            30325800
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      0     57   Uart_Send_String
+        0      9   -> Uart_Send_char
+      0      9   Uart_Send_char
+      0     57   halMcuWaitMs
+        0      9   -> halMcuWaitUs
+      0      9   halMcuWaitUs
+      1     64   lcd_dis
+        0     48   -> Uart_Send_String
+        0     48   -> halMcuWaitMs
+        0     64   -> sprintf
+        0     48   -> strcat
+      0      0   uart0_init
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      40  ?<Constant "%02X:%02X:%02X:%02X:%...">
+       6  ?<Constant "{MAC=">
+      13  ?<Constant "{TYPE=06205}">
+      30  ?<Constant {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+       6  ?Subroutine0
+       1  P0SEL
+       1  P2DIR
+       1  PERCFG
+       1  U0BAUD
+       1  U0CSR
+       1  U0DBUF
+       1  U0GCR
+       1  U0UCR
+      36  Uart_Send_String
+       6  Uart_Send_String::?relay
+      11  Uart_Send_char
+       6  Uart_Send_char::?relay
+       1  _A_IRCON2
+      39  halMcuWaitMs
+       6  halMcuWaitMs::?relay
+      45  halMcuWaitUs
+       6  halMcuWaitUs::?relay
+     285  lcd_dis
+       6  lcd_dis::?relay
+      25  uart0_init
+       6  uart0_init::?relay
+
+ 
+ 447 bytes in segment BANKED_CODE
+  36 bytes in segment BANK_RELAYS
+   9 bytes in segment SFR_AN
+  89 bytes in segment XDATA_ROM_C
+ 
+  36 bytes of CODE     memory
+  89 bytes of CONST    memory
+   0 bytes of DATA     memory (+ 9 bytes shared)
+ 447 bytes of HUGECODE memory
+
+Errors: none
+Warnings: none
